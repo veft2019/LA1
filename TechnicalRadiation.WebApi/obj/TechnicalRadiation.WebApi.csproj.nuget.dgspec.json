@@ -1,0 +1,69 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/ivarkristinn/Desktop/VEFT/LA1/TechnicalRadiation.WebApi/TechnicalRadiation.WebApi.csproj": {}
+  },
+  "projects": {
+    "/home/ivarkristinn/Desktop/VEFT/LA1/TechnicalRadiation.WebApi/TechnicalRadiation.WebApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/ivarkristinn/Desktop/VEFT/LA1/TechnicalRadiation.WebApi/TechnicalRadiation.WebApi.csproj",
+        "projectName": "TechnicalRadiation.WebApi",
+        "projectPath": "/home/ivarkristinn/Desktop/VEFT/LA1/TechnicalRadiation.WebApi/TechnicalRadiation.WebApi.csproj",
+        "packagesPath": "/home/ivarkristinn/.nuget/packages/",
+        "outputPath": "/home/ivarkristinn/Desktop/VEFT/LA1/TechnicalRadiation.WebApi/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/home/ivarkristinn/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.AspNetCore.Razor.Design": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
