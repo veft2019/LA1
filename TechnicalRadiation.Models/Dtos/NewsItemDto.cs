@@ -7,5 +7,6 @@ namespace TechnicalRadiation.Models.Dtos
         public string ImgSource { get; set; }
         public string ShortDescription { get; set; }
         public string LongDescription { get; set; } 
+        
     }
 }
