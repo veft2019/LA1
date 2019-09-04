@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "/home/ivarkristinn/Desktop/VEFT/LA1/TechnicalRadiation.Services/TechnicalRadiation.Services.csproj": {}
+    "/Users/gudrunivans/LA1/TechnicalRadiation.Services/TechnicalRadiation.Services.csproj": {}
   },
   "projects": {
-    "/home/ivarkristinn/Desktop/VEFT/LA1/TechnicalRadiation.Services/TechnicalRadiation.Services.csproj": {
+    "/Users/gudrunivans/LA1/TechnicalRadiation.Models/TechnicalRadiation.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/ivarkristinn/Desktop/VEFT/LA1/TechnicalRadiation.Services/TechnicalRadiation.Services.csproj",
-        "projectName": "TechnicalRadiation.Services",
-        "projectPath": "/home/ivarkristinn/Desktop/VEFT/LA1/TechnicalRadiation.Services/TechnicalRadiation.Services.csproj",
-        "packagesPath": "/home/ivarkristinn/.nuget/packages/",
-        "outputPath": "/home/ivarkristinn/Desktop/VEFT/LA1/TechnicalRadiation.Services/obj/",
+        "projectUniqueName": "/Users/gudrunivans/LA1/TechnicalRadiation.Models/TechnicalRadiation.Models.csproj",
+        "projectName": "TechnicalRadiation.Models",
+        "projectPath": "/Users/gudrunivans/LA1/TechnicalRadiation.Models/TechnicalRadiation.Models.csproj",
+        "packagesPath": "/Users/gudrunivans/.nuget/packages/",
+        "outputPath": "/Users/gudrunivans/LA1/TechnicalRadiation.Models/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/home/ivarkristinn/.nuget/NuGet/NuGet.Config"
+          "/Users/gudrunivans/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
@@ -28,6 +28,117 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "/Users/gudrunivans/LA1/TechnicalRadiation.Repositories/TechnicalRadiation.Repositories.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/gudrunivans/LA1/TechnicalRadiation.Repositories/TechnicalRadiation.Repositories.csproj",
+        "projectName": "TechnicalRadiation.Repositories",
+        "projectPath": "/Users/gudrunivans/LA1/TechnicalRadiation.Repositories/TechnicalRadiation.Repositories.csproj",
+        "packagesPath": "/Users/gudrunivans/.nuget/packages/",
+        "outputPath": "/Users/gudrunivans/LA1/TechnicalRadiation.Repositories/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/gudrunivans/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "/Users/gudrunivans/LA1/TechnicalRadiation.Models/TechnicalRadiation.Models.csproj": {
+                "projectPath": "/Users/gudrunivans/LA1/TechnicalRadiation.Models/TechnicalRadiation.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "/Users/gudrunivans/LA1/TechnicalRadiation.Services/TechnicalRadiation.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/gudrunivans/LA1/TechnicalRadiation.Services/TechnicalRadiation.Services.csproj",
+        "projectName": "TechnicalRadiation.Services",
+        "projectPath": "/Users/gudrunivans/LA1/TechnicalRadiation.Services/TechnicalRadiation.Services.csproj",
+        "packagesPath": "/Users/gudrunivans/.nuget/packages/",
+        "outputPath": "/Users/gudrunivans/LA1/TechnicalRadiation.Services/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/gudrunivans/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "/Users/gudrunivans/LA1/TechnicalRadiation.Models/TechnicalRadiation.Models.csproj": {
+                "projectPath": "/Users/gudrunivans/LA1/TechnicalRadiation.Models/TechnicalRadiation.Models.csproj"
+              },
+              "/Users/gudrunivans/LA1/TechnicalRadiation.Repositories/TechnicalRadiation.Repositories.csproj": {
+                "projectPath": "/Users/gudrunivans/LA1/TechnicalRadiation.Repositories/TechnicalRadiation.Repositories.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

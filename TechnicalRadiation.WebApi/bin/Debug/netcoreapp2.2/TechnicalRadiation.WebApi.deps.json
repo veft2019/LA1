@@ -26,13 +26,46 @@
         "dependencies": {
           "Microsoft.AspNetCore.App": "2.2.0",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
-          "Microsoft.NETCore.App": "2.2.0"
+          "Microsoft.NETCore.App": "2.2.0",
+          "TechnicalRadiation.Models": "1.0.0",
+          "TechnicalRadiation.Services": "1.0.0"
         },
         "runtime": {
           "TechnicalRadiation.WebApi.dll": {}
         },
         "compile": {
           "TechnicalRadiation.WebApi.dll": {}
+        }
+      },
+      "TechnicalRadiation.Models/1.0.0": {
+        "runtime": {
+          "TechnicalRadiation.Models.dll": {}
+        },
+        "compile": {
+          "TechnicalRadiation.Models.dll": {}
+        }
+      },
+      "TechnicalRadiation.Repositories/1.0.0": {
+        "dependencies": {
+          "TechnicalRadiation.Models": "1.0.0"
+        },
+        "runtime": {
+          "TechnicalRadiation.Repositories.dll": {}
+        },
+        "compile": {
+          "TechnicalRadiation.Repositories.dll": {}
+        }
+      },
+      "TechnicalRadiation.Services/1.0.0": {
+        "dependencies": {
+          "TechnicalRadiation.Models": "1.0.0",
+          "TechnicalRadiation.Repositories": "1.0.0"
+        },
+        "runtime": {
+          "TechnicalRadiation.Services.dll": {}
+        },
+        "compile": {
+          "TechnicalRadiation.Services.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -3233,6 +3266,21 @@
   },
   "libraries": {
     "TechnicalRadiation.WebApi/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TechnicalRadiation.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TechnicalRadiation.Repositories/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TechnicalRadiation.Services/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
