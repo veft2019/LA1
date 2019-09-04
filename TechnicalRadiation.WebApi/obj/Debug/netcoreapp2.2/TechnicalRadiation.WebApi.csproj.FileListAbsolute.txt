@@ -1,0 +1,14 @@
+/Users/gudrunivans/LA1/TechnicalRadiation.WebApi/bin/Debug/netcoreapp2.2/TechnicalRadiation.WebApi.deps.json
+/Users/gudrunivans/LA1/TechnicalRadiation.WebApi/bin/Debug/netcoreapp2.2/TechnicalRadiation.WebApi.runtimeconfig.json
+/Users/gudrunivans/LA1/TechnicalRadiation.WebApi/bin/Debug/netcoreapp2.2/TechnicalRadiation.WebApi.runtimeconfig.dev.json
+/Users/gudrunivans/LA1/TechnicalRadiation.WebApi/bin/Debug/netcoreapp2.2/TechnicalRadiation.WebApi.dll
+/Users/gudrunivans/LA1/TechnicalRadiation.WebApi/bin/Debug/netcoreapp2.2/TechnicalRadiation.WebApi.pdb
+/Users/gudrunivans/LA1/TechnicalRadiation.WebApi/obj/Debug/netcoreapp2.2/TechnicalRadiation.WebApi.csprojAssemblyReference.cache
+/Users/gudrunivans/LA1/TechnicalRadiation.WebApi/obj/Debug/netcoreapp2.2/TechnicalRadiation.WebApi.csproj.CoreCompileInputs.cache
+/Users/gudrunivans/LA1/TechnicalRadiation.WebApi/obj/Debug/netcoreapp2.2/TechnicalRadiation.WebApi.RazorAssemblyInfo.cache
+/Users/gudrunivans/LA1/TechnicalRadiation.WebApi/obj/Debug/netcoreapp2.2/TechnicalRadiation.WebApi.RazorAssemblyInfo.cs
+/Users/gudrunivans/LA1/TechnicalRadiation.WebApi/obj/Debug/netcoreapp2.2/TechnicalRadiation.WebApi.AssemblyInfoInputs.cache
+/Users/gudrunivans/LA1/TechnicalRadiation.WebApi/obj/Debug/netcoreapp2.2/TechnicalRadiation.WebApi.AssemblyInfo.cs
+/Users/gudrunivans/LA1/TechnicalRadiation.WebApi/obj/Debug/netcoreapp2.2/TechnicalRadiation.WebApi.RazorTargetAssemblyInfo.cache
+/Users/gudrunivans/LA1/TechnicalRadiation.WebApi/obj/Debug/netcoreapp2.2/TechnicalRadiation.WebApi.dll
+/Users/gudrunivans/LA1/TechnicalRadiation.WebApi/obj/Debug/netcoreapp2.2/TechnicalRadiation.WebApi.pdb

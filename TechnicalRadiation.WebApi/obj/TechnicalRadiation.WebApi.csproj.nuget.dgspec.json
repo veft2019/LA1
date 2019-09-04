@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "/home/ivarkristinn/Desktop/VEFT/LA1/TechnicalRadiation.WebApi/TechnicalRadiation.WebApi.csproj": {}
+    "/Users/gudrunivans/LA1/TechnicalRadiation.WebApi/TechnicalRadiation.WebApi.csproj": {}
   },
   "projects": {
-    "/home/ivarkristinn/Desktop/VEFT/LA1/TechnicalRadiation.WebApi/TechnicalRadiation.WebApi.csproj": {
+    "/Users/gudrunivans/LA1/TechnicalRadiation.WebApi/TechnicalRadiation.WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/ivarkristinn/Desktop/VEFT/LA1/TechnicalRadiation.WebApi/TechnicalRadiation.WebApi.csproj",
+        "projectUniqueName": "/Users/gudrunivans/LA1/TechnicalRadiation.WebApi/TechnicalRadiation.WebApi.csproj",
         "projectName": "TechnicalRadiation.WebApi",
-        "projectPath": "/home/ivarkristinn/Desktop/VEFT/LA1/TechnicalRadiation.WebApi/TechnicalRadiation.WebApi.csproj",
-        "packagesPath": "/home/ivarkristinn/.nuget/packages/",
-        "outputPath": "/home/ivarkristinn/Desktop/VEFT/LA1/TechnicalRadiation.WebApi/obj/",
+        "projectPath": "/Users/gudrunivans/LA1/TechnicalRadiation.WebApi/TechnicalRadiation.WebApi.csproj",
+        "packagesPath": "/Users/gudrunivans/.nuget/packages/",
+        "outputPath": "/Users/gudrunivans/LA1/TechnicalRadiation.WebApi/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/home/ivarkristinn/.nuget/NuGet/NuGet.Config"
+          "/Users/gudrunivans/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.2"

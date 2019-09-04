@@ -1,0 +1,9 @@
+/Users/gudrunivans/LA1/TechnicalRadiation.Models/bin/Debug/netstandard2.0/TechnicalRadiation.Models.deps.json
+/Users/gudrunivans/LA1/TechnicalRadiation.Models/bin/Debug/netstandard2.0/TechnicalRadiation.Models.dll
+/Users/gudrunivans/LA1/TechnicalRadiation.Models/bin/Debug/netstandard2.0/TechnicalRadiation.Models.pdb
+/Users/gudrunivans/LA1/TechnicalRadiation.Models/obj/Debug/netstandard2.0/TechnicalRadiation.Models.csprojAssemblyReference.cache
+/Users/gudrunivans/LA1/TechnicalRadiation.Models/obj/Debug/netstandard2.0/TechnicalRadiation.Models.csproj.CoreCompileInputs.cache
+/Users/gudrunivans/LA1/TechnicalRadiation.Models/obj/Debug/netstandard2.0/TechnicalRadiation.Models.AssemblyInfoInputs.cache
+/Users/gudrunivans/LA1/TechnicalRadiation.Models/obj/Debug/netstandard2.0/TechnicalRadiation.Models.AssemblyInfo.cs
+/Users/gudrunivans/LA1/TechnicalRadiation.Models/obj/Debug/netstandard2.0/TechnicalRadiation.Models.dll
+/Users/gudrunivans/LA1/TechnicalRadiation.Models/obj/Debug/netstandard2.0/TechnicalRadiation.Models.pdb
