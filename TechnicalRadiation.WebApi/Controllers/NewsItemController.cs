@@ -14,7 +14,8 @@ namespace TechnicalRadiation.WebApi.Controllers
         [Route("")]
         [HttpGet] 
 
-       public IActionResult GetAllNewsItems([FromQuery] bool containUnavailable) {
+       public IActionResult GetAllNewsItems([FromQuery] int pageSize, [FromQuery] int pageNumber) {
+           //var envelope = new Envelope()
            return Ok();
        }
         
