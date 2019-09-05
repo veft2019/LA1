@@ -19,3 +19,5 @@
 /Users/gudrunivans/LA1/TechnicalRadiation.WebApi/bin/Debug/netcoreapp2.2/TechnicalRadiation.Services.pdb
 /Users/gudrunivans/LA1/TechnicalRadiation.WebApi/bin/Debug/netcoreapp2.2/TechnicalRadiation.Repositories.pdb
 /Users/gudrunivans/LA1/TechnicalRadiation.WebApi/obj/Debug/netcoreapp2.2/TechnicalRadiation.WebApi.csproj.CopyComplete
+C:\Users\HJ\Desktop\LA1\TechnicalRadiation.WebApi\obj\Debug\netcoreapp2.2\TechnicalRadiation.WebApi.dll
+C:\Users\HJ\Desktop\LA1\TechnicalRadiation.WebApi\obj\Debug\netcoreapp2.2\TechnicalRadiation.WebApi.pdb

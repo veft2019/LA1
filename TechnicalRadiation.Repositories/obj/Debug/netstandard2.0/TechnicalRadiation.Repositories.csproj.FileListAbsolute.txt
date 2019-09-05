@@ -10,3 +10,5 @@
 /Users/gudrunivans/LA1/TechnicalRadiation.Repositories/bin/Debug/netstandard2.0/TechnicalRadiation.Models.dll
 /Users/gudrunivans/LA1/TechnicalRadiation.Repositories/bin/Debug/netstandard2.0/TechnicalRadiation.Models.pdb
 /Users/gudrunivans/LA1/TechnicalRadiation.Repositories/obj/Debug/netstandard2.0/TechnicalRadiation.Repositories.csproj.CopyComplete
+C:\Users\HJ\Desktop\LA1\TechnicalRadiation.Repositories\obj\Debug\netstandard2.0\TechnicalRadiation.Repositories.dll
+C:\Users\HJ\Desktop\LA1\TechnicalRadiation.Repositories\obj\Debug\netstandard2.0\TechnicalRadiation.Repositories.pdb

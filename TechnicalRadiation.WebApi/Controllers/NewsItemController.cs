@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using TechnicalRadiation.Models;
 
 namespace TechnicalRadiation.WebApi.Controllers
 {
@@ -10,13 +11,14 @@ namespace TechnicalRadiation.WebApi.Controllers
     [ApiController]
     public class NewsItemController : ControllerBase
     {
+        var newsItemService = new NewsItemService();
          //http://localhost:5000/api/newsItems  [GET]
         [Route("")]
         [HttpGet] 
 
-       public IActionResult GetAllNewsItems([FromQuery] int pageSize, [FromQuery] int pageNumber) {
-           //var envelope = new Envelope()
-           return Ok();
+       public IActionResult GetAllNewsItems([FromQuery] int pageNumber, [FromQuery] int pageSize) {
+           var envelope = new Envelope(pageNumber, pageSize, newsItemService.GetAllItems());
+           return Ok(/* envelope */);
        }
         
         //http://localhost:5000/api/newsItems/1 [GET]
