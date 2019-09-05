@@ -16,9 +16,8 @@ namespace TechnicalRadiation.WebApi.Controllers
         NewsItemService newsItemService = new NewsItemService();
          //http://localhost:5000/api/newsItems  [GET]
         [Route("")]
-        [HttpGet] 
-
-       public IActionResult GetAllNewsItems([FromQuery] int pageNumber, [FromQuery] int pageSize) {
+        [HttpGet]
+       public IActionResult GetAllNewsItems([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 25) {
            var envelope = new Envelope<NewsItemDto>(pageNumber, pageSize, newsItemService.GetAllNewsItems());
            return Ok(envelope);
        }
