@@ -4,21 +4,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TechnicalRadiation.Models;
+using TechnicalRadiation.Models.Dtos;
+using TechnicalRadiation.Services;
 
 namespace TechnicalRadiation.WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/news")]
     [ApiController]
     public class NewsItemController : ControllerBase
     {
-        var newsItemService = new NewsItemService();
+        NewsItemService newsItemService = new NewsItemService();
          //http://localhost:5000/api/newsItems  [GET]
         [Route("")]
         [HttpGet] 
 
        public IActionResult GetAllNewsItems([FromQuery] int pageNumber, [FromQuery] int pageSize) {
-           var envelope = new Envelope(pageNumber, pageSize, newsItemService.GetAllItems());
-           return Ok(/* envelope */);
+           var envelope = new Envelope<NewsItemDto>(pageNumber, pageSize, newsItemService.GetAllNewsItems());
+           return Ok(envelope);
        }
         
         //http://localhost:5000/api/newsItems/1 [GET]
