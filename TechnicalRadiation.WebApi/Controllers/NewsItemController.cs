@@ -9,12 +9,13 @@ using TechnicalRadiation.Services;
 
 namespace TechnicalRadiation.WebApi.Controllers
 {
-    [Route("api/news")]
+    [Route("/api")]
     [ApiController]
     public class NewsItemController : ControllerBase
     {
         NewsItemService newsItemService = new NewsItemService();
-         //http://localhost:5000/api/newsItems  [GET]
+
+         //http://localhost:5000/api  [GET]
         [Route("")]
         [HttpGet]
        public IActionResult GetAllNewsItems([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 25) {
@@ -26,7 +27,8 @@ namespace TechnicalRadiation.WebApi.Controllers
         [Route("{id:int}", Name = "GetNewsItemsById")] // þetta route ef ég ætla refreca þennan route í kóða
         [HttpGet]
         public IActionResult getNewsItemsById(int id) {
-            return Ok();
+            
+            return Ok(newsItemService.GetNewsItemById(id));
         }
 
         //http://localhost:5000/api/newsItems/ [POST]
