@@ -47,11 +47,15 @@ namespace TechnicalRadiation.WebApi.Controllers
             return CreatedAtRoute("GetNewsItemsById", new { id = newNewsItem.Id }, null);
         }
 
-         //http://localhost:5000/api/newsItems/1 [PUT]
+//http://localhost:5000/api/newsItems/1 [PUT]
+         //This is suppose to be a PUT request and when you are using PUT you send the status code 204.
+        [ApiKeyAuthorization]
         [Route("{id:int}")]
         [HttpPut]
-        public IActionResult UpdateNewsItemByID() {
-            return Ok();
+        public IActionResult UpdateNewsItemByID([FromBody] NewsItemInputModel body, int id) {
+            if(!ModelState.IsValid) { return BadRequest("Data was not properly formatted."); }
+            _newsItemService.UpdateNewsItemByID(body, id);
+            return NoContent();
         }
 
          //http://localhost:5000/api/newsItems/1 [DELETE]
