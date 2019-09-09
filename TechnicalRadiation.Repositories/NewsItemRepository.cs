@@ -49,6 +49,20 @@ namespace TechnicalRadiation.Repositories
             return _mapper.Map<NewsItemDto>(entity);
         }
 
+        public void UpdateNewsItemByID(NewsItemInputModel body, int id) {
+            var newItem = _mapper.Map<NewsItem>(body);
+            if (newItem == null) { return; /* Throw some exception */ }
+            var oldItem = NewsItemDataProvider.NewsItems.Where(n => n.Id == id).First();
+
+            // Update props
+            // Is there a better way to do this ?
+            oldItem.Title = newItem.Title;
+            oldItem.ImgSource = newItem.ImgSource;
+            oldItem.LongDescription = newItem.LongDescription;
+            oldItem.ShortDescription = newItem.ShortDescription;
+            oldItem.PublishDate = newItem.PublishDate;
+        }
+
          public void DeleteNewsItemById(int id) {
             var entity = NewsItemDataProvider.NewsItems.FirstOrDefault(r => r.Id == id);
             if (entity == null) { return; /* remember exception */ }
