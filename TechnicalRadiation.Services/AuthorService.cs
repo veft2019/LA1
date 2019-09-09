@@ -39,8 +39,11 @@ namespace TechnicalRadiation.Services
             return newsItems;
         }
 
+<<<<<<< HEAD
         public AuthorDto CreateAuthor(AuthorInputModel body) {
             return _authorRepo.CreateAuthor(body);
         }
+=======
+>>>>>>> aed86cbeda717fd38b587cecaddc23907cb965b5
     }
 }

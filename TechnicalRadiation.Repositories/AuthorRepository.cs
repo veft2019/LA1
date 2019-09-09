@@ -37,6 +37,7 @@ namespace TechnicalRadiation.Repositories
         public IEnumerable<NewsItemDto> GetNewsItemsByAuthorId(int id) {
             //var newsItems = NewsItemDataProvider.NewsItems.Where()
             return new List<NewsItemDto> {};
+<<<<<<< HEAD
         }
 
         public AuthorDto CreateAuthor(AuthorInputModel body) {
@@ -46,5 +47,9 @@ namespace TechnicalRadiation.Repositories
             AuthorDataProvider.Authors.Add(entity);
             return _mapper.Map<AuthorDto>(entity);
         }
+=======
+        }  
+
+>>>>>>> aed86cbeda717fd38b587cecaddc23907cb965b5
     }
 }
