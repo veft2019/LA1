@@ -36,5 +36,6 @@ namespace TechnicalRadiation.Repositories
             //var newsItems = NewsItemDataProvider.NewsItems.Where()
             return new List<NewsItemDto> {};
         }  
+
     }
 }

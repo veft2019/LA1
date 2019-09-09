@@ -318,23 +318,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\HJ\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/gudrunivans/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\HJ\\Desktop\\LA1\\TechnicalRadiation.Models\\TechnicalRadiation.Models.csproj",
+      "projectUniqueName": "/Users/gudrunivans/LA1/TechnicalRadiation.Models/TechnicalRadiation.Models.csproj",
       "projectName": "TechnicalRadiation.Models",
-      "projectPath": "C:\\Users\\HJ\\Desktop\\LA1\\TechnicalRadiation.Models\\TechnicalRadiation.Models.csproj",
-      "packagesPath": "C:\\Users\\HJ\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\HJ\\Desktop\\LA1\\TechnicalRadiation.Models\\obj\\",
+      "projectPath": "/Users/gudrunivans/LA1/TechnicalRadiation.Models/TechnicalRadiation.Models.csproj",
+      "packagesPath": "/Users/gudrunivans/.nuget/packages/",
+      "outputPath": "/Users/gudrunivans/LA1/TechnicalRadiation.Models/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\HJ\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/gudrunivans/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"

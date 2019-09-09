@@ -1086,23 +1086,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\HJ\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/gudrunivans/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\HJ\\Desktop\\LA1\\TechnicalRadiation.Repositories\\TechnicalRadiation.Repositories.csproj",
+      "projectUniqueName": "/Users/gudrunivans/LA1/TechnicalRadiation.Repositories/TechnicalRadiation.Repositories.csproj",
       "projectName": "TechnicalRadiation.Repositories",
-      "projectPath": "C:\\Users\\HJ\\Desktop\\LA1\\TechnicalRadiation.Repositories\\TechnicalRadiation.Repositories.csproj",
-      "packagesPath": "C:\\Users\\HJ\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\HJ\\Desktop\\LA1\\TechnicalRadiation.Repositories\\obj\\",
+      "projectPath": "/Users/gudrunivans/LA1/TechnicalRadiation.Repositories/TechnicalRadiation.Repositories.csproj",
+      "packagesPath": "/Users/gudrunivans/.nuget/packages/",
+      "outputPath": "/Users/gudrunivans/LA1/TechnicalRadiation.Repositories/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\HJ\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/gudrunivans/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
@@ -1113,8 +1113,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Users\\HJ\\Desktop\\LA1\\TechnicalRadiation.Models\\TechnicalRadiation.Models.csproj": {
-              "projectPath": "C:\\Users\\HJ\\Desktop\\LA1\\TechnicalRadiation.Models\\TechnicalRadiation.Models.csproj"
+            "/Users/gudrunivans/LA1/TechnicalRadiation.Models/TechnicalRadiation.Models.csproj": {
+              "projectPath": "/Users/gudrunivans/LA1/TechnicalRadiation.Models/TechnicalRadiation.Models.csproj"
             }
           }
         }
