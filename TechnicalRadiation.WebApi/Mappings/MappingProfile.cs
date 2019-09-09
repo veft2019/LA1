@@ -13,11 +13,16 @@ namespace TechnicalRadiation.WebApi.Mappings
         {
             CreateMap<NewsItem, NewsItemDto>();
             CreateMap<Category, CategoryDto>();
+            CreateMap<Author, AuthorDto>();
             CreateMap<NewsItemInputModel, NewsItem>()
                 .ForMember(src => src.DateCreated, opt => opt.MapFrom(src => DateTime.Now))
                 .ForMember(src => src.DateModified, opt => opt.MapFrom(src => DateTime.Now))
                 .ForMember(src => src.ModifiedBy, opt => opt.MapFrom(src => _adminName));
             CreateMap<CategoryInputModel, Category>()
+                .ForMember(src => src.DateCreated, opt => opt.MapFrom(src => DateTime.Now))
+                .ForMember(src => src.DateModified, opt => opt.MapFrom(src => DateTime.Now))
+                .ForMember(src => src.ModifiedBy, opt => opt.MapFrom(src => _adminName));
+            CreateMap<AuthorInputModel, Author>()
                 .ForMember(src => src.DateCreated, opt => opt.MapFrom(src => DateTime.Now))
                 .ForMember(src => src.DateModified, opt => opt.MapFrom(src => DateTime.Now))
                 .ForMember(src => src.ModifiedBy, opt => opt.MapFrom(src => _adminName));

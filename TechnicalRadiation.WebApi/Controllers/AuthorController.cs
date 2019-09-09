@@ -1,6 +1,8 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Services;
+using TechnicalRadiation.WebApi.CustomAttributes;
 
 namespace TechnicalRadiation.WebApi.Controllers
 {
@@ -33,6 +35,16 @@ namespace TechnicalRadiation.WebApi.Controllers
         public IActionResult GetNewsItemsByAuthorId(int id) {
             var newsItems = _authorService.GetNewsItemsByAuthorId(id);
             return Ok(newsItems);
+        }
+
+        //http://localhost:5000/api/authors [POST]
+        [Route("")]
+        [HttpPost]
+        [ApiKeyAuthorization] //A version of what I think Arnar wants for authentication (check CustomAttributes folder for implementation)
+        public IActionResult CreateAuthor([FromBody] AuthorInputModel body)  { 
+            if(!ModelState.IsValid) { return BadRequest("Data was not properly formatted."); }
+            var category = _authorService.CreateAuthor(body);
+            return CreatedAtRoute("GetAuthorById", new { id = category.Id }, null);
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Linq;
 using AutoMapper;
 using TechnicalRadiation.Models.Dtos;
 using TechnicalRadiation.Models.Extensions;
+using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Repositories;
 
 namespace TechnicalRadiation.Services
@@ -17,18 +18,18 @@ namespace TechnicalRadiation.Services
         public List<AuthorDto> GetAllAuthors() {
             var authors = _authorRepo.GetAllAuthors().ToList();
             authors.ForEach(a => {
-                a.Links.AddReference("self", $"/api/categories{a.Id}");
-                a.Links.AddReference("edit", $"/api/categories{a.Id}");
-                a.Links.AddReference("delete", $"/api/categories{a.Id}");
+                a.Links.AddReference("self", $"/api/authors/{a.Id}");
+                a.Links.AddReference("edit", $"/api/authors/{a.Id}");
+                a.Links.AddReference("delete", $"/api/authors/{a.Id}");
             });
             return authors;
         }
 
         public AuthorDetailDto GetAuthorById(int id) {
             var author = _authorRepo.GetAuthorById(id);
-            author.Links.AddReference("self", $"/api/categories{author.Id}");
-            author.Links.AddReference("edit", $"/api/categories{author.Id}");
-            author.Links.AddReference("delete", $"/api/categories{author.Id}");
+            author.Links.AddReference("self", $"/api/authors/{author.Id}");
+            author.Links.AddReference("edit", $"/api/authors/{author.Id}");
+            author.Links.AddReference("delete", $"/api/authors/{author.Id}");
             return author;
         }
 
@@ -36,6 +37,10 @@ namespace TechnicalRadiation.Services
             var newsItems = _authorRepo.GetNewsItemsByAuthorId(id).ToList();
             //Connections???
             return newsItems;
+        }
+
+        public AuthorDto CreateAuthor(AuthorInputModel body) {
+            return _authorRepo.CreateAuthor(body);
         }
     }
 }

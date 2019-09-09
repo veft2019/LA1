@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using TechnicalRadiation.Models.Dtos;
+using TechnicalRadiation.Models.Entities;
+using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Repositories.Data;
 
 namespace TechnicalRadiation.Repositories
@@ -35,6 +37,14 @@ namespace TechnicalRadiation.Repositories
         public IEnumerable<NewsItemDto> GetNewsItemsByAuthorId(int id) {
             //var newsItems = NewsItemDataProvider.NewsItems.Where()
             return new List<NewsItemDto> {};
-        }  
+        }
+
+        public AuthorDto CreateAuthor(AuthorInputModel body) {
+            var entity = _mapper.Map<Author>(body);
+            var nextId = AuthorDataProvider.Authors.Last().Id + 1;
+            entity.Id = nextId;
+            AuthorDataProvider.Authors.Add(entity);
+            return _mapper.Map<AuthorDto>(entity);
+        }
     }
 }
