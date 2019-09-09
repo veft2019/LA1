@@ -36,7 +36,6 @@ namespace TechnicalRadiation.WebApi.Controllers
             var newsItems = _authorService.GetNewsItemsByAuthorId(id);
             return Ok(newsItems);
         }
-<<<<<<< HEAD
 
         //http://localhost:5000/api/authors [POST]
         [Route("")]
@@ -47,8 +46,5 @@ namespace TechnicalRadiation.WebApi.Controllers
             var category = _authorService.CreateAuthor(body);
             return CreatedAtRoute("GetAuthorById", new { id = category.Id }, null);
         }
-=======
-        
->>>>>>> aed86cbeda717fd38b587cecaddc23907cb965b5
     }
 }
