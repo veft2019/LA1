@@ -36,5 +36,9 @@ namespace TechnicalRadiation.Services
         public CategoryDto CreateCategory(CategoryInputModel body) {
             return _categoryRepo.CreateCategory(body);
         }
+
+         public void DeleteCategoriesById(int id) {
+            _categoryRepo.DeleteCategoriesById(id);
+        }
     }
 }

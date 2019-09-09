@@ -44,5 +44,11 @@ namespace TechnicalRadiation.Repositories
             CategoryDataProvider.Categories.Add(entity);
             return _mapper.Map<CategoryDto>(entity);
         }
+
+         public void DeleteCategoriesById(int id) {
+            var entity = CategoryDataProvider.Categories.FirstOrDefault(r => r.Id == id);
+            if (entity == null) { return; /* remember exception */ }
+            CategoryDataProvider.Categories.Remove(entity);
+        }
     }
 }

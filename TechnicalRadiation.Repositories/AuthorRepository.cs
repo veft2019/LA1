@@ -46,5 +46,6 @@ namespace TechnicalRadiation.Repositories
             AuthorDataProvider.Authors.Add(entity);
             return _mapper.Map<AuthorDto>(entity);
         }
+
     }
 }
