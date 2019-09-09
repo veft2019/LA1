@@ -47,5 +47,11 @@ namespace TechnicalRadiation.Repositories
             return _mapper.Map<AuthorDto>(entity);
         }
 
+        public void DeleteAuthorById(int id) {
+            var entity = AuthorDataProvider.Authors.FirstOrDefault(r => r.Id == id);
+            if (entity == null) { return; /* remember exception */ }
+            AuthorDataProvider.Authors.Remove(entity);
+        }
+
     }
 }
