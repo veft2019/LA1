@@ -8,6 +8,7 @@ namespace TechnicalRadiation.WebApi.Mappings
 {
     public class MappingProfile : Profile
     {
+        private static readonly string _adminName = "TechnicalRadiationAdmin";
         public MappingProfile()
         {
             CreateMap<NewsItem, NewsItemDto>();
@@ -15,7 +16,11 @@ namespace TechnicalRadiation.WebApi.Mappings
             CreateMap<NewsItemInputModel, NewsItem>()
                 .ForMember(src => src.DateCreated, opt => opt.MapFrom(src => DateTime.Now))
                 .ForMember(src => src.DateModified, opt => opt.MapFrom(src => DateTime.Now))
-                .ForMember(src => src.ModifiedBy, opt => opt.MapFrom(src => "TechnicalRadiationAdmin"));
+                .ForMember(src => src.ModifiedBy, opt => opt.MapFrom(src => _adminName));
+            CreateMap<CategoryInputModel, Category>()
+                .ForMember(src => src.DateCreated, opt => opt.MapFrom(src => DateTime.Now))
+                .ForMember(src => src.DateModified, opt => opt.MapFrom(src => DateTime.Now))
+                .ForMember(src => src.ModifiedBy, opt => opt.MapFrom(src => _adminName));
         }
     }
 }

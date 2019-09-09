@@ -1,14 +1,19 @@
 using System.Collections.Generic;
 using System.Linq;
+using AutoMapper;
 using TechnicalRadiation.Models.Dtos;
 using TechnicalRadiation.Models.Extensions;
+using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Repositories;
 
 namespace TechnicalRadiation.Services
 {
     public class CategoryService
     {
-        private CategoryRepository _categoryRepo = new CategoryRepository();
+        private CategoryRepository _categoryRepo;
+        public CategoryService(IMapper mapper) {
+            _categoryRepo = new CategoryRepository(mapper);
+        }
 
         public List<CategoryDto> GetAllCategories() {
             var categories = _categoryRepo.GetAllCategories().ToList();
@@ -26,6 +31,10 @@ namespace TechnicalRadiation.Services
             category.Links.AddReference("edit", $"/api/categories{category.Id}");
             category.Links.AddReference("delete", $"/api/categories{category.Id}");
             return category;
+        }
+
+        public CategoryDto CreateCategory(CategoryInputModel body) {
+            return _categoryRepo.CreateCategory(body);
         }
     }
 }

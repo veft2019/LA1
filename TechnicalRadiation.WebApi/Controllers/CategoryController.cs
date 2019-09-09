@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Services;
@@ -9,7 +10,10 @@ namespace TechnicalRadiation.WebApi.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
-        CategoryService _categoryService = new CategoryService();
+        CategoryService _categoryService;
+        public CategoryController(IMapper mapper) {
+            _categoryService = new CategoryService(mapper);
+        }
 
         //http://localhost:5000/api/categories [GET]
         [Route("")]
@@ -32,10 +36,9 @@ namespace TechnicalRadiation.WebApi.Controllers
         [HttpPost]
         [ApiKeyAuthorization] //A version of what I think Arnar wants for authentication (check CustomAttributes folder for implementation)
         public IActionResult CreateNewsItem([FromBody] CategoryInputModel body)  { 
-            //if(!ModelState.IsValid) { return BadRequest("Data was not properly formatted."); }
-            //var category = _categoryService.CreateNewsItem(body);
-            //return CreatedAtRoute("GetNewsItemsById", new { id = category.Id }, null);
-            return Ok();
+            if(!ModelState.IsValid) { return BadRequest("Data was not properly formatted."); }
+            var category = _categoryService.CreateCategory(body);
+            return CreatedAtRoute("GetNewsItemsById", new { id = category.Id }, null);
         }
     }
 }

@@ -21,7 +21,7 @@ namespace TechnicalRadiation.Repositories.Data
             new Category {
                 Id = 2,
                 Name = "Comedy",
-                Slug = "comdey",
+                Slug = "comedy",
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
                 ModifiedBy = _adminName
