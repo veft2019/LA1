@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using TechnicalRadiation.Services;
+using TechnicalRadiation.WebApi.CustomAttributes;
 
 namespace TechnicalRadiation.WebApi.Controllers
 {
@@ -9,7 +10,7 @@ namespace TechnicalRadiation.WebApi.Controllers
     {
         CategoryService _categoryService = new CategoryService();
 
-        //http://localhost:5000/api/categories  [GET]
+        //http://localhost:5000/api/categories [GET]
         [Route("")]
         [HttpGet]
         public IActionResult GetAllCategories() {

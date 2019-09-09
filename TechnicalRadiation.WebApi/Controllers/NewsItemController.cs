@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using TechnicalRadiation.Models;
 using TechnicalRadiation.Models.Dtos;
 using TechnicalRadiation.Services;
+using TechnicalRadiation.WebApi.CustomAttributes;
 
 namespace TechnicalRadiation.WebApi.Controllers
 {
@@ -15,7 +16,7 @@ namespace TechnicalRadiation.WebApi.Controllers
     {
         NewsItemService _newsItemService = new NewsItemService();
 
-        //http://localhost:5000/api  [GET]
+        //http://localhost:5000/api [GET]
         [Route("")]
         [HttpGet]
        public IActionResult GetAllNewsItems([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 25) {
@@ -34,6 +35,7 @@ namespace TechnicalRadiation.WebApi.Controllers
         //http://localhost:5000/api/newsItems/ [POST]
         [Route("")]
         [HttpPost]
+        [ApiKeyAuthorization] //A version of what I think Arnar wants for authentication (check CustomAttributes folder for implementation)
         public IActionResult CreateNewsItem()  { 
             return Ok();
         }
