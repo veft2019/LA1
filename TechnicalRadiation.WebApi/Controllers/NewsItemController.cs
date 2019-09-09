@@ -47,14 +47,14 @@ namespace TechnicalRadiation.WebApi.Controllers
             return CreatedAtRoute("GetNewsItemsById", new { id = newNewsItem.Id }, null);
         }
 
-         //http://localhost:5000/api/newsItems/1 [PUT]
+        //http://localhost:5000/api/newsItems/1 [PUT]
         [Route("{id:int}")]
         [HttpPut]
-        public IActionResult UpdateNewsItemByID() {
+        public IActionResult UpdateNewsItemById() {
             return Ok();
         }
 
-         //http://localhost:5000/api/newsItems/1 [DELETE]
+        //http://localhost:5000/api/newsItems/1 [DELETE]
         [Route("{id:int}")]
         [HttpDelete]
         public IActionResult DeleteNewsItemById(int id) {

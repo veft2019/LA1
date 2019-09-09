@@ -38,8 +38,13 @@ namespace TechnicalRadiation.Services
             //Connections???
             return newsItems;
         }
+
         public AuthorDto CreateAuthor(AuthorInputModel body) {
             return _authorRepo.CreateAuthor(body);
+        }
+
+        public void UpdateAuthorById(AuthorInputModel body, int id) {
+            _authorRepo.UpdateAuthorById(body, id);
         }
 
         public void DeleteAuthorById(int id) {

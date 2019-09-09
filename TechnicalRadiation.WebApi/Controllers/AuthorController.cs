@@ -46,6 +46,17 @@ namespace TechnicalRadiation.WebApi.Controllers
             var category = _authorService.CreateAuthor(body);
             return CreatedAtRoute("GetAuthorById", new { id = category.Id }, null);
         }
+
+        //http://localhost:5000/api/authors/1 [PUT]
+        [Route("{id:int}")]
+        [HttpPut]
+        public IActionResult UpdateAuthorById(AuthorInputModel body, int id) {
+            if (!ModelState.IsValid) { return BadRequest("Model is not properly formatted."); }
+            _authorService.UpdateAuthorById(body, id);
+            return NoContent();
+        }
+
+        //http://localhost:5000/api/authors/1 [DELETE]
         [Route("{id:int}")]
         [HttpDelete]
         public IActionResult DeleteAuthorById(int id) {

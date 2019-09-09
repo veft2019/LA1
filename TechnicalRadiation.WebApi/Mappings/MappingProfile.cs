@@ -9,9 +9,11 @@ namespace TechnicalRadiation.WebApi.Mappings
     public class MappingProfile : Profile
     {
         private static readonly string _adminName = "TechnicalRadiationAdmin";
+        
         public MappingProfile()
         {
             CreateMap<NewsItem, NewsItemDto>();
+            CreateMap<NewsItem, NewsItemDetailDto>();
             CreateMap<Category, CategoryDto>();
             CreateMap<Author, AuthorDto>();
             CreateMap<NewsItemInputModel, NewsItem>()

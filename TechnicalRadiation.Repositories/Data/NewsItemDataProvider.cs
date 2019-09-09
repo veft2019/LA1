@@ -11,7 +11,6 @@ namespace TechnicalRadiation.Repositories.Data
         public static List<NewsItem> NewsItems = new List<NewsItem>
         {
             new NewsItem {
-
                 Id = 1,
                 Title = "Petra goes nuts",
                 ImgSource = "https://tmbidigitalassetsazure.blob.core.windows.net/secure/RMS/attachments/37/1200x1200/Cobb-Salad-Club-Sandwich_EXPS_THAM19_233459_B11_09_2b.jpg",

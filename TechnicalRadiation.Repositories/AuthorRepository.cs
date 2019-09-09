@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
@@ -45,6 +46,15 @@ namespace TechnicalRadiation.Repositories
             entity.Id = nextId;
             AuthorDataProvider.Authors.Add(entity);
             return _mapper.Map<AuthorDto>(entity);
+        }
+
+        public void UpdateAuthorById(AuthorInputModel body, int id) {
+            var entity = AuthorDataProvider.Authors.FirstOrDefault(a => a.Id == id);
+            if (entity == null) { return; /* Throw some exception */ }
+            entity.Name = body.Name;
+            entity.ProfileImageSource = body.ProfileImgSource;
+            entity.Bio = body.Bio;
+            entity.DateModified = DateTime.Now;
         }
 
         public void DeleteAuthorById(int id) {
