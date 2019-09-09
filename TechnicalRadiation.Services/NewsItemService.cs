@@ -47,6 +47,10 @@ namespace TechnicalRadiation.Services
             return _newsItemRepo.CreateNewsItem(body);
         }
 
+        public void UpdateNewsItemByID(NewsItemInputModel body, int id) {
+            _newsItemRepo.UpdateNewsItemByID(body, id);
+        }
+
          public void DeleteNewsItemById(int id) {
             _newsItemRepo.DeleteNewsItemById(id);
         }
