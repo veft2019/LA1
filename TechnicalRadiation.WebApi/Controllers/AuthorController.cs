@@ -46,5 +46,11 @@ namespace TechnicalRadiation.WebApi.Controllers
             var category = _authorService.CreateAuthor(body);
             return CreatedAtRoute("GetAuthorById", new { id = category.Id }, null);
         }
+        [Route("{id:int}")]
+        [HttpDelete]
+        public IActionResult DeleteAuthorById(int id) {
+            _authorService.DeleteAuthorById(id);
+            return NoContent();
+        }
     }
 }
