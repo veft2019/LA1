@@ -14,16 +14,17 @@ namespace TechnicalRadiation.Repositories
                 Slug = c.Slug,
             });
             //MAPPER REQUIRED
+        }
 
-            /*
-            return NewsItemDataProvider.NewsItems.OrderBy(n => n.PublishDate)
-            .Select(n => new NewsItemDto {
-                Id = n.Id,
-                Title = n.Title,
-                ImgSource = n.ImgSource,
-                ShortDescription = n.ShortDescription
-            });
-             */
+        public CategoryDetailDto GetCategoryById(int id) {
+            var category = CategoryDataProvider.Categories.FirstOrDefault(c => c.Id == id);
+            if(category == null) { return null; } //throw exception
+            return new CategoryDetailDto {
+                Id = category.Id,
+                Name = category.Name,
+                Slug = category.Slug,
+                NumberOfNewsItems = 0 //Make a methood to find all news items with this category and return length 
+            };
             //MAPPER REQUIRED
         }
     }

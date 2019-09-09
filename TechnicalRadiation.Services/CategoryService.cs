@@ -19,5 +19,13 @@ namespace TechnicalRadiation.Services
             });
             return categories;
         }
+
+        public CategoryDetailDto GetCategoryById(int id) {
+            var category = _categoryRepo.GetCategoryById(id);
+            category.Links.AddReference("self", $"/api/categories{category.Id}");
+            category.Links.AddReference("edit", $"/api/categories{category.Id}");
+            category.Links.AddReference("delete", $"/api/categories{category.Id}");
+            return category;
+        }
     }
 }

@@ -19,12 +19,12 @@ namespace TechnicalRadiation.WebApi.Controllers
         //http://localhost:5000/api [GET]
         [Route("")]
         [HttpGet]
-       public IActionResult GetAllNewsItems([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 25) {
-           var envelope = new Envelope<NewsItemDto>(pageNumber, pageSize, _newsItemService.GetAllNewsItems());
-           return Ok(envelope);
-       }
+        public IActionResult GetAllNewsItems([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 25) {
+            var envelope = new Envelope<NewsItemDto>(pageNumber, pageSize, _newsItemService.GetAllNewsItems());
+            return Ok(envelope);
+        }
         
-        //http://localhost:5000/api/newsItems/1 [GET]
+        //http://localhost:5000/api/1 [GET]
         [Route("{id:int}", Name = "GetNewsItemsById")] // þetta route ef ég ætla refreca þennan route í kóða
         [HttpGet]
         public IActionResult getNewsItemsById(int id) {

@@ -17,5 +17,13 @@ namespace TechnicalRadiation.WebApi.Controllers
             var categoryList = _categoryService.GetAllCategories();
             return Ok(categoryList);
         }
+        
+        //http://localhost:5000/api/categories/1 [GET]
+        [Route("{id:int}", Name = "GetCategoriesById")]
+        [HttpGet]
+        public IActionResult GetCategoryById(int id) {
+            var category = _categoryService.GetCategoryById(id);
+            return Ok(category);
+        }
     }
 }
