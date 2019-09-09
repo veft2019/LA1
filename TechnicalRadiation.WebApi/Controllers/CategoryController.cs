@@ -35,10 +35,17 @@ namespace TechnicalRadiation.WebApi.Controllers
         [Route("")]
         [HttpPost]
         [ApiKeyAuthorization] //A version of what I think Arnar wants for authentication (check CustomAttributes folder for implementation)
-        public IActionResult CreateCategory([FromBody] CategoryInputModel body)  { 
+        public IActionResult CreateNewsItem([FromBody] CategoryInputModel body)  { 
             if(!ModelState.IsValid) { return BadRequest("Data was not properly formatted."); }
             var category = _categoryService.CreateCategory(body);
-            return CreatedAtRoute("GetCategoriesById", new { id = category.Id }, null);
+            return CreatedAtRoute("GetNewsItemsById", new { id = category.Id }, null);
+        }
+
+        [Route("{id:int}")]
+        [HttpDelete]
+        public IActionResult DeleteCategoriesById(int id) {
+            _categoryService.DeleteCategoriesById(id);
+            return NoContent();
         }
     }
 }
