@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Services;
 using TechnicalRadiation.WebApi.CustomAttributes;
 
@@ -24,6 +25,17 @@ namespace TechnicalRadiation.WebApi.Controllers
         public IActionResult GetCategoryById(int id) {
             var category = _categoryService.GetCategoryById(id);
             return Ok(category);
+        }
+
+        //http://localhost:5000/api/categories [POST]
+        [Route("")]
+        [HttpPost]
+        [ApiKeyAuthorization] //A version of what I think Arnar wants for authentication (check CustomAttributes folder for implementation)
+        public IActionResult CreateNewsItem([FromBody] CategoryInputModel body)  { 
+            //if(!ModelState.IsValid) { return BadRequest("Data was not properly formatted."); }
+            //var category = _categoryService.CreateNewsItem(body);
+            //return CreatedAtRoute("GetNewsItemsById", new { id = category.Id }, null);
+            return Ok();
         }
     }
 }

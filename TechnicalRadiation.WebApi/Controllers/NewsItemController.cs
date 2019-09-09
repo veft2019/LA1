@@ -54,14 +54,7 @@ namespace TechnicalRadiation.WebApi.Controllers
             return Ok();
         }
 
-         //http://localhost:5000/api/newsItems/1 [PATCH]
-        [Route("{id:int}")]
-        [HttpPatch]
-        public IActionResult UpdateNewsItemPartiallyById(int id) {
-            return Ok();
-        }
-
-         //http://localhost:5000/api/newsItems/1 [DELATE]
+         //http://localhost:5000/api/newsItems/1 [DELETE]
         [Route("{id:int}")]
         [HttpDelete]
         public IActionResult DeleteNewsItemById() {
