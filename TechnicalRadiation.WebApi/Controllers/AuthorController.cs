@@ -34,5 +34,6 @@ namespace TechnicalRadiation.WebApi.Controllers
             var newsItems = _authorService.GetNewsItemsByAuthorId(id);
             return Ok(newsItems);
         }
+        
     }
 }

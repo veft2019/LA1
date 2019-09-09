@@ -57,8 +57,10 @@ namespace TechnicalRadiation.WebApi.Controllers
          //http://localhost:5000/api/newsItems/1 [DELETE]
         [Route("{id:int}")]
         [HttpDelete]
-        public IActionResult DeleteNewsItemById() {
-            return Ok();
+        public IActionResult DeleteNewsItemById(int id) {
+
+            _newsItemService.DeleteNewsItemById(id);
+            return NoContent();
         }
     }
 }
