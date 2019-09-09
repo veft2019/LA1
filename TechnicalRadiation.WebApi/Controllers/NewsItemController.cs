@@ -13,13 +13,13 @@ namespace TechnicalRadiation.WebApi.Controllers
     [ApiController]
     public class NewsItemController : ControllerBase
     {
-        NewsItemService newsItemService = new NewsItemService();
+        NewsItemService _newsItemService = new NewsItemService();
 
-         //http://localhost:5000/api  [GET]
+        //http://localhost:5000/api  [GET]
         [Route("")]
         [HttpGet]
        public IActionResult GetAllNewsItems([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 25) {
-           var envelope = new Envelope<NewsItemDto>(pageNumber, pageSize, newsItemService.GetAllNewsItems());
+           var envelope = new Envelope<NewsItemDto>(pageNumber, pageSize, _newsItemService.GetAllNewsItems());
            return Ok(envelope);
        }
         
@@ -28,7 +28,7 @@ namespace TechnicalRadiation.WebApi.Controllers
         [HttpGet]
         public IActionResult getNewsItemsById(int id) {
             
-            return Ok(newsItemService.GetNewsItemById(id));
+            return Ok(_newsItemService.GetNewsItemById(id));
         }
 
         //http://localhost:5000/api/newsItems/ [POST]
