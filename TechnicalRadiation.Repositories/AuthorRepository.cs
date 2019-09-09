@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using AutoMapper;
 using TechnicalRadiation.Models.Dtos;
 using TechnicalRadiation.Repositories.Data;
 
@@ -7,6 +8,10 @@ namespace TechnicalRadiation.Repositories
 {
     public class AuthorRepository
     {
+        private IMapper _mapper;
+        public AuthorRepository(IMapper mapper) {
+            _mapper = mapper;
+        }
         public IEnumerable<AuthorDto> GetAllAuthors() {
             return AuthorDataProvider.Authors.Select(a => new AuthorDto {
                 Id = a.Id,
@@ -26,5 +31,10 @@ namespace TechnicalRadiation.Repositories
             };
             //MAPPER REQUIRED
         }
+
+        public IEnumerable<NewsItemDto> GetNewsItemsByAuthorId(int id) {
+            //var newsItems = NewsItemDataProvider.NewsItems.Where()
+            return new List<NewsItemDto> {};
+        }  
     }
 }

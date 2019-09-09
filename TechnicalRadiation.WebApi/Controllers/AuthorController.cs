@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using TechnicalRadiation.Services;
 
@@ -7,7 +8,10 @@ namespace TechnicalRadiation.WebApi.Controllers
     [ApiController]
     public class AuthorController : ControllerBase
     {
-        AuthorService _authorService = new AuthorService();
+        AuthorService _authorService;
+        public AuthorController(IMapper mapper) {
+            _authorService = new AuthorService(mapper);
+        }
 
         //http://localhost:5000/api/authors [GET]
         [Route("")]
@@ -23,6 +27,12 @@ namespace TechnicalRadiation.WebApi.Controllers
         public IActionResult GetAuthorById(int id) {
             var author = _authorService.GetAuthorById(id);
             return Ok(author);
+        }
+
+        //http://localhost:5000/api/authors/{authorId}/newsItems [GET]
+        public IActionResult GetNewsItemsByAuthorId(int id) {
+            var newsItems = _authorService.GetNewsItemsByAuthorId(id);
+            return Ok(newsItems);
         }
     }
 }

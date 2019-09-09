@@ -3,12 +3,20 @@ using System.Linq;
 using TechnicalRadiation.Models.Dtos;
 using TechnicalRadiation.Repositories;
 using TechnicalRadiation.Models.Extensions;
+using TechnicalRadiation.Models.InputModels;
+using AutoMapper;
 
 namespace TechnicalRadiation.Services
 {
     public class NewsItemService
     {
-        private NewsItemRepository _newsItemRepo = new NewsItemRepository();
+        private NewsItemRepository _newsItemRepo;
+        private AuthorRepository _authorRepo;
+
+        public NewsItemService(IMapper mapper) {
+            _newsItemRepo = new NewsItemRepository(mapper);
+            _authorRepo = new AuthorRepository(mapper);
+        }
 
         public List<NewsItemDto> GetAllNewsItems() {
             var newsItems = _newsItemRepo.GetAllNewsItems().ToList();
@@ -33,6 +41,10 @@ namespace TechnicalRadiation.Services
             //newsItem.Links.AddListReference("categories", _categoryRepo.GetCategoriesByNewsItemId(newsItem.Id).Select(c => new {href = $"api/categories/{c.Id}/newsItems/{newsItem.Id}"}));
 
             return newsItem;
+        }
+
+        public NewsItemDto CreateNewsItem(NewsItemInputModel body) {
+            return _newsItemRepo.CreateNewsItem(body);
         }
     }
 }

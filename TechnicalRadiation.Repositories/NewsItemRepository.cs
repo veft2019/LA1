@@ -1,12 +1,21 @@
 using System.Collections.Generic;
 using System.Linq;
+using AutoMapper;
 using TechnicalRadiation.Models.Dtos;
+using TechnicalRadiation.Models.Entities;
+using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Repositories.Data;
 
 namespace TechnicalRadiation.Repositories
 {
     public class NewsItemRepository
     {
+        private IMapper _mapper;
+        public NewsItemRepository(IMapper mapper)
+        {
+            _mapper = mapper;
+        }
+
         public IEnumerable<NewsItemDto> GetAllNewsItems() {
             return NewsItemDataProvider.NewsItems.OrderBy(n => n.PublishDate)
             .Select(n => new NewsItemDto {
@@ -30,6 +39,14 @@ namespace TechnicalRadiation.Repositories
                 PublishDate = newsItem.PublishDate
             };
             //MAPPER REQUIRED
-        } 
+        }
+
+        public NewsItemDto CreateNewsItem(NewsItemInputModel body) {
+            var entity = _mapper.Map<NewsItem>(body);
+            var nextId = NewsItemDataProvider.NewsItems.Last().Id + 1;
+            entity.Id = nextId;
+            NewsItemDataProvider.NewsItems.Add(entity);
+            return _mapper.Map<NewsItemDto>(entity);
+        }
     }
 }

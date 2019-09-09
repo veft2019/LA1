@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using TechnicalRadiation.Models;
 using TechnicalRadiation.Models.Dtos;
+using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Services;
 using TechnicalRadiation.WebApi.CustomAttributes;
 
@@ -14,7 +16,10 @@ namespace TechnicalRadiation.WebApi.Controllers
     [ApiController]
     public class NewsItemController : ControllerBase
     {
-        NewsItemService _newsItemService = new NewsItemService();
+        NewsItemService _newsItemService;
+        public NewsItemController(IMapper mapper) {
+            _newsItemService = new NewsItemService(mapper);
+        }
 
         //http://localhost:5000/api [GET]
         [Route("")]
@@ -32,12 +37,14 @@ namespace TechnicalRadiation.WebApi.Controllers
             return Ok(_newsItemService.GetNewsItemById(id));
         }
 
-        //http://localhost:5000/api/newsItems/ [POST]
+        //http://localhost:5000/api [POST]
         [Route("")]
         [HttpPost]
         [ApiKeyAuthorization] //A version of what I think Arnar wants for authentication (check CustomAttributes folder for implementation)
-        public IActionResult CreateNewsItem()  { 
-            return Ok();
+        public IActionResult CreateNewsItem([FromBody] NewsItemInputModel body)  { 
+            if(!ModelState.IsValid) { return BadRequest("Data was not properly formatted."); }
+            var newNewsItem = _newsItemService.CreateNewsItem(body);
+            return CreatedAtRoute("GetNewsItemsById", new { id = newNewsItem.Id }, null);
         }
 
          //http://localhost:5000/api/newsItems/1 [PUT]
