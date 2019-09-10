@@ -8,6 +8,7 @@ namespace TechnicalRadiation.WebApi.CustomAttributes
     public class ApiKeyAuthorization : Attribute, IAuthorizationFilter
     {
         private static readonly string _apiKey = "admin";
+        
         public void OnAuthorization(AuthorizationFilterContext context)
         {
             StringValues authentication;

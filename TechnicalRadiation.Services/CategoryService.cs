@@ -42,6 +42,10 @@ namespace TechnicalRadiation.Services
             _categoryRepo.UpdateCategoryById(body, id);
         }
 
+        public void ConnectNewsItemToCategory(int categoryId, int newsItemId) {
+            _categoryRepo.ConnectNewsItemToCategory(categoryId, newsItemId);
+        }
+
          public void DeleteCategoriesById(int id) {
             _categoryRepo.DeleteCategoriesById(id);
         }

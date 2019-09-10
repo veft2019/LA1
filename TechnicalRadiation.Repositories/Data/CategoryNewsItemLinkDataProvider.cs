@@ -5,7 +5,7 @@ namespace TechnicalRadiation.Repositories.Data
 {
     public class CategoryNewsItemLinkDataProvider
     {
-        public static List<NewsItemCategories> Authors = new List<NewsItemCategories>
+        public static List<NewsItemCategories> CategoryNewsItemLink = new List<NewsItemCategories>
         {
             new NewsItemCategories {
                 CategoryId = 1,

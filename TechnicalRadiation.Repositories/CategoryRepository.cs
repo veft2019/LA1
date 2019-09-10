@@ -51,6 +51,16 @@ namespace TechnicalRadiation.Repositories
 
             // Update props
             entity.Name = body.Name;
+            entity.Slug = body.Name.Replace(' ', '-').ToLower();
+        }
+
+        public void ConnectNewsItemToCategory(int categoryId, int newsItemId) {
+            NewsItemCategories newConnection = new NewsItemCategories {CategoryId = categoryId, NewsItemId = newsItemId};
+            //Checking if connection is already made
+            var exists = CategoryNewsItemLinkDataProvider.CategoryNewsItemLink
+                                                         .Where(i => i.NewsItemId == newsItemId && i.CategoryId == categoryId);
+            if(exists == null) { return; } //Throw exception
+            CategoryNewsItemLinkDataProvider.CategoryNewsItemLink.Add(newConnection);
         }
 
          public void DeleteCategoriesById(int id) {
