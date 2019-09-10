@@ -41,7 +41,7 @@ namespace TechnicalRadiation.WebApi.Controllers
         //http://localhost:5000/api [POST]
         [Route("")]
         [HttpPost]
-        [ApiKeyAuthorization] //A version of what I think Arnar wants for authentication (check CustomAttributes folder for implementation)
+        [ApiKeyAuthorization]
         public IActionResult CreateNewsItem([FromBody] NewsItemInputModel body)  { 
             if(!ModelState.IsValid) { return BadRequest("Data was not properly formatted."); }
             var newNewsItem = _newsItemService.CreateNewsItem(body);
@@ -49,7 +49,6 @@ namespace TechnicalRadiation.WebApi.Controllers
         }
 
         //http://localhost:5000/api/newsItems/1 [PUT]
-         //This is suppose to be a PUT request and when you are using PUT you send the status code 204.
         [ApiKeyAuthorization]
         [Route("{id:int}")]
         [HttpPut]

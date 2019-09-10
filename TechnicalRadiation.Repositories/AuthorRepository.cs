@@ -15,6 +15,7 @@ namespace TechnicalRadiation.Repositories
         public AuthorRepository(IMapper mapper) {
             _mapper = mapper;
         }
+
         public IEnumerable<AuthorDto> GetAllAuthors() {
             return AuthorDataProvider.Authors.Select(a => new AuthorDto {
                 Id = a.Id,
@@ -36,8 +37,16 @@ namespace TechnicalRadiation.Repositories
         }
 
         public IEnumerable<NewsItemDto> GetNewsItemsByAuthorId(int id) {
-            //var newsItems = NewsItemDataProvider.NewsItems.Where()
-            return new List<NewsItemDto> {};
+            var authorNewsItemLinks = AuthorNewsItemLinkDataProvider.AuthorNewsItemLink.Where(a => a.AuthorId == id);
+            List<NewsItemDto> newsItems = new List<NewsItemDto>();
+            
+            foreach (var item in authorNewsItemLinks)
+            {
+                var entity = NewsItemDataProvider.NewsItems.FirstOrDefault(n => n.Id == item.NewsItemId);
+                newsItems.Add(_mapper.Map<NewsItemDto>(entity));
+            }
+            
+            return newsItems;
         }
 
         public AuthorDto CreateAuthor(AuthorInputModel body) {

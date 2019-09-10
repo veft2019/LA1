@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
+using Newtonsoft.Json.Linq;
 using TechnicalRadiation.Models.Dtos;
 using TechnicalRadiation.Models.Extensions;
 using TechnicalRadiation.Models.InputModels;
@@ -18,24 +19,34 @@ namespace TechnicalRadiation.Services
         public List<AuthorDto> GetAllAuthors() {
             var authors = _authorRepo.GetAllAuthors().ToList();
             authors.ForEach(a => {
-                a.Links.AddReference("self", $"/api/authors/{a.Id}");
-                a.Links.AddReference("edit", $"/api/authors/{a.Id}");
-                a.Links.AddReference("delete", $"/api/authors/{a.Id}");
+                a.Links.AddReference("self", new JObject{new JProperty("href", $"/api/authors/{a.Id}")});
+                a.Links.AddReference("edit", new JObject{new JProperty("href", $"/api/authors/{a.Id}")});
+                a.Links.AddReference("delete", new JObject{new JProperty("href", $"/api/authors/{a.Id}")});
+                a.Links.AddReference("newsItems", new JObject{new JProperty("href", $"/api/authors/{a.Id}/newsItems")});
+                //Need List reference for authors newItemDetailed href links
             });
             return authors;
         }
 
         public AuthorDetailDto GetAuthorById(int id) {
             var author = _authorRepo.GetAuthorById(id);
-            author.Links.AddReference("self", $"/api/authors/{author.Id}");
-            author.Links.AddReference("edit", $"/api/authors/{author.Id}");
-            author.Links.AddReference("delete", $"/api/authors/{author.Id}");
+            author.Links.AddReference("self", new JObject{new JProperty("href", $"/api/authors/{author.Id}")});
+            author.Links.AddReference("edit", new JObject{new JProperty("href", $"/api/authors/{author.Id}")});
+            author.Links.AddReference("delete", new JObject{new JProperty("href", $"/api/authors/{author.Id}")});
+            author.Links.AddReference("newsItems", new JObject{new JProperty("href", $"/api/authors/{author.Id}/newsItems")});
+            //Need List reference for authors newItemDetailed href links
             return author;
         }
 
         public List<NewsItemDto> GetNewsItemsByAuthorId(int id) {
             var newsItems = _authorRepo.GetNewsItemsByAuthorId(id).ToList();
-            //Connections???
+            newsItems.ForEach(n => {
+                n.Links.AddReference("self", new JObject{new JProperty("href", $"/api/{n.Id}")});
+                n.Links.AddReference("edit", new JObject{new JProperty("href", $"/api/{n.Id}")});
+                n.Links.AddReference("delete", new JObject{new JProperty("href", $"/api/{n.Id}")});
+                //n.Links.AddListReference("authors", _authorRepo.GetAuthorsByNewsItemId(n.Id).Select(a => new { href = $"api/authors/{a.Id}/newsItems/{n.Id}"}));
+                //n.Links.AddListReference("categories", _categoryRepo.GetCategoriesByNewsItemId(n.Id).Select(c => new { href = $"api/categories/{c.Id}/newsItems/{n.Id}"}));
+            });
             return newsItems;
         }
 

@@ -32,6 +32,8 @@ namespace TechnicalRadiation.WebApi.Controllers
         }
 
         //http://localhost:5000/api/authors/{authorId}/newsItems [GET]
+        [Route("{id:int}/newsItems")]
+        [HttpGet]
         public IActionResult GetNewsItemsByAuthorId(int id) {
             var newsItems = _authorService.GetNewsItemsByAuthorId(id);
             return Ok(newsItems);
@@ -41,7 +43,7 @@ namespace TechnicalRadiation.WebApi.Controllers
         //http://localhost:5000/api/authors [POST]
         [Route("")]
         [HttpPost]
-        [ApiKeyAuthorization] //A version of what I think Arnar wants for authentication (check CustomAttributes folder for implementation)
+        [ApiKeyAuthorization]
         public IActionResult CreateAuthor([FromBody] AuthorInputModel body)  { 
             if(!ModelState.IsValid) { return BadRequest("Data was not properly formatted."); }
             var category = _authorService.CreateAuthor(body);
@@ -49,9 +51,9 @@ namespace TechnicalRadiation.WebApi.Controllers
         }
 
         //http://localhost:5000/api/authors/1 [PUT]
-        [ApiKeyAuthorization]
         [Route("{id:int}")]
         [HttpPut]
+        [ApiKeyAuthorization]
         public IActionResult UpdateAuthorById(AuthorInputModel body, int id) {
             if (!ModelState.IsValid) { return BadRequest("Model is not properly formatted."); }
             _authorService.UpdateAuthorById(body, id);
@@ -59,12 +61,21 @@ namespace TechnicalRadiation.WebApi.Controllers
         }
 
         //http://localhost:5000/api/authors/1 [DELETE]
-        [ApiKeyAuthorization]
         [Route("{id:int}")]
         [HttpDelete]
+        [ApiKeyAuthorization]
         public IActionResult DeleteAuthorById(int id) {
             _authorService.DeleteAuthorById(id);
             return NoContent();
+        }
+
+        //http://localhost:5000/api/authors/{authorId}/newsItems/{newsItemId}
+        [Route("{authorId:int}/newsItems/{newsItemId:int}")]
+        [HttpPut]
+        [ApiKeyAuthorization]
+        public IActionResult LinkAuthorToNewsItem(int authorId, int newsItemId) {
+            return Ok();
+            //Should probably be created at route
         }
     }
 }
