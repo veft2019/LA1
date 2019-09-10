@@ -52,10 +52,10 @@ namespace TechnicalRadiation.WebApi.Controllers
             return NoContent();
         }
 
-        //http://localhost:5000/api/categories/1/newsItems/1 [PUT]
+        //http://localhost:5000/api/categories/1/newsItems/1 [POST]
         [ApiKeyAuthorization]
         [Route("{categoryId:int}/newsItems/{newsItemId:int}")]
-        [HttpPut]
+        [HttpPost]
         public IActionResult ConnectNewsItemToCategory(int categoryId, int newsItemId) {
             _categoryService.ConnectNewsItemToCategory(categoryId, newsItemId);
             return NoContent();

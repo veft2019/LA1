@@ -69,13 +69,13 @@ namespace TechnicalRadiation.WebApi.Controllers
             return NoContent();
         }
 
-        //http://localhost:5000/api/authors/{authorId}/newsItems/{newsItemId}
+        //http://localhost:5000/api/authors/{authorId}/newsItems/{newsItemId} [POST]
         [Route("{authorId:int}/newsItems/{newsItemId:int}")]
-        [HttpPut]
+        [HttpPost]
         [ApiKeyAuthorization]
-        public IActionResult LinkAuthorToNewsItem(int authorId, int newsItemId) {
-            return Ok();
-            //Should probably be created at route
+        public IActionResult ConnectNewsItemToAuthor(int authorId, int newsItemId) {
+            _authorService.ConnectNewsItemToAuthor(authorId, newsItemId);
+            return NoContent();
         }
     }
 }

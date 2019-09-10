@@ -58,8 +58,8 @@ namespace TechnicalRadiation.Repositories
             NewsItemCategories newConnection = new NewsItemCategories {CategoryId = categoryId, NewsItemId = newsItemId};
             //Checking if connection is already made
             var exists = CategoryNewsItemLinkDataProvider.CategoryNewsItemLink
-                                                         .Where(i => i.NewsItemId == newsItemId && i.CategoryId == categoryId);
-            if(exists == null) { return; } //Throw exception
+                        .FirstOrDefault(i => i.NewsItemId == newsItemId && i.CategoryId == categoryId);
+            if(exists != null) { return; } //Throw exception
             CategoryNewsItemLinkDataProvider.CategoryNewsItemLink.Add(newConnection);
         }
 

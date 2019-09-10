@@ -66,6 +66,15 @@ namespace TechnicalRadiation.Repositories
             entity.DateModified = DateTime.Now;
         }
 
+        public void ConnectNewsItemToAuthor(int authorId, int newsItemId) {
+            NewsItemAuthors newConnection = new NewsItemAuthors {AuthorId = authorId, NewsItemId = newsItemId};
+            //Checking if connection is already made
+            NewsItemAuthors exists = AuthorNewsItemLinkDataProvider.AuthorNewsItemLink
+                                    .FirstOrDefault(i => i.NewsItemId == newsItemId && i.AuthorId == authorId);
+            if(exists != null) { return; } //Throw exception
+            AuthorNewsItemLinkDataProvider.AuthorNewsItemLink.Add(newConnection);
+        }
+
         public IEnumerable<NewsItemAuthors> GetAuthorsByNewsItemId(int id) { 
            return AuthorNewsItemLinkDataProvider.AuthorNewsItemLink.Where(n => n.NewsItemId == id);
         }

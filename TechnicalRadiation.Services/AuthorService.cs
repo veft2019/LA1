@@ -58,6 +58,10 @@ namespace TechnicalRadiation.Services
             _authorRepo.UpdateAuthorById(body, id);
         }
 
+        public void ConnectNewsItemToAuthor(int authorId, int newsItemId) {
+            _authorRepo.ConnectNewsItemToAuthor(authorId, newsItemId);
+        }
+
         public void DeleteAuthorById(int id) {
             _authorRepo.DeleteAuthorById(id);
         }
