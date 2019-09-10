@@ -48,6 +48,7 @@ namespace TechnicalRadiation.WebApi.Controllers
         }
 
         //http://localhost:5000/api/authors/1 [PUT]
+        [ApiKeyAuthorization]
         [Route("{id:int}")]
         [HttpPut]
         public IActionResult UpdateAuthorById(AuthorInputModel body, int id) {
