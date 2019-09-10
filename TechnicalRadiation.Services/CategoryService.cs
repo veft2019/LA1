@@ -31,6 +31,7 @@ namespace TechnicalRadiation.Services
             category.Links.AddReference("self", new JObject{new JProperty("href", $"/api/categories/{category.Id}")});
             category.Links.AddReference("edit", new JObject{new JProperty("href", $"/api/categories/{category.Id}")});
             category.Links.AddReference("delete", new JObject{new JProperty("href", $"/api/categories/{category.Id}")});
+            category.NumberOfNewsItems = _categoryRepo.GetNumberOfNewsItemsByCategoryId(id);
             return category;
         }
 

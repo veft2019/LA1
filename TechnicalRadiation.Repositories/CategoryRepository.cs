@@ -31,9 +31,13 @@ namespace TechnicalRadiation.Repositories
                 Id = category.Id,
                 Name = category.Name,
                 Slug = category.Slug,
-                NumberOfNewsItems = 0 //Make a methood to find all news items with this category and return length 
             };
             //MAPPER REQUIRED
+        }
+
+        public int GetNumberOfNewsItemsByCategoryId(int id) {
+            int number = CategoryNewsItemLinkDataProvider.CategoryNewsItemLink.Where(c => c.CategoryId == id).Count();
+            return number;
         }
 
         public CategoryDto CreateCategory(CategoryInputModel body) {

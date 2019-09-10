@@ -44,8 +44,7 @@ namespace TechnicalRadiation.Services
                 n.Links.AddReference("self", new JObject{new JProperty("href", $"/api/{n.Id}")});
                 n.Links.AddReference("edit", new JObject{new JProperty("href", $"/api/{n.Id}")});
                 n.Links.AddReference("delete", new JObject{new JProperty("href", $"/api/{n.Id}")});
-                //n.Links.AddListReference("authors", _authorRepo.GetAuthorsByNewsItemId(n.Id).Select(a => new { href = $"api/authors/{a.Id}/newsItems/{n.Id}"}));
-                //n.Links.AddListReference("categories", _categoryRepo.GetCategoriesByNewsItemId(n.Id).Select(c => new { href = $"api/categories/{c.Id}/newsItems/{n.Id}"}));
+                //here
             });
             return newsItems;
         }
