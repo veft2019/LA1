@@ -12,8 +12,11 @@ namespace TechnicalRadiation.Services
     public class AuthorService
     {
         private AuthorRepository _authorRepo;
+        private CategoryRepository _categoryRepo;
+
         public AuthorService(IMapper mapper) {
             _authorRepo = new AuthorRepository(mapper);
+            _categoryRepo = new CategoryRepository(mapper);
         }
 
         public List<AuthorDto> GetAllAuthors() {
@@ -34,7 +37,7 @@ namespace TechnicalRadiation.Services
             author.Links.AddReference("edit", new JObject{new JProperty("href", $"/api/authors/{author.Id}")});
             author.Links.AddReference("delete", new JObject{new JProperty("href", $"/api/authors/{author.Id}")});
             author.Links.AddReference("newsItems", new JObject{new JProperty("href", $"/api/authors/{author.Id}/newsItems")});
-            //Need List reference for authors newItemDetailed href links
+            //need stuff
             return author;
         }
 
@@ -44,7 +47,8 @@ namespace TechnicalRadiation.Services
                 n.Links.AddReference("self", new JObject{new JProperty("href", $"/api/{n.Id}")});
                 n.Links.AddReference("edit", new JObject{new JProperty("href", $"/api/{n.Id}")});
                 n.Links.AddReference("delete", new JObject{new JProperty("href", $"/api/{n.Id}")});
-                //here
+                n.Links.AddListReference("authors", _authorRepo.GetAuthorsByNewsItemId(n.Id).Select(a => new { href = $"api/authors/{a.AuthorId}"}));
+                n.Links.AddListReference("categories", _categoryRepo.GetCategoriesByNewsItemId(n.Id).Select(c => new { href = $"api/categories/{c.CategoryId}"}));
             });
             return newsItems;
         }
