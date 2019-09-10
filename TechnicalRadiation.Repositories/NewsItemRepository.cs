@@ -19,32 +19,12 @@ namespace TechnicalRadiation.Repositories
         public IEnumerable<NewsItemDto> GetAllNewsItems() {
             return NewsItemDataProvider.NewsItems.OrderBy(n => n.PublishDate)
             .Select(n => _mapper.Map<NewsItemDto>(n));
-            /*
-            .Select(n => new NewsItemDto {
-                Id = n.Id,
-                Title = n.Title,
-                ImgSource = n.ImgSource,
-                ShortDescription = n.ShortDescription
-            });
-            //MAPPER REQUIRED
-             */
         }
 
         public NewsItemDetailDto GetNewsItemById(int newsItemId) {
             var newsItem = NewsItemDataProvider.NewsItems.FirstOrDefault(n => n.Id == newsItemId);
             if(newsItem == null) { return null; } //Throw exception
             return _mapper.Map<NewsItemDetailDto>(newsItem);
-            /*
-            return new NewsItemDetailDto {
-                Id = newsItem.Id,
-                Title = newsItem.Title,
-                ImgSource = newsItem.ImgSource,
-                ShortDescription = newsItem.ShortDescription,
-                LongDescription = newsItem.LongDescription,
-                PublishDate = newsItem.PublishDate
-            };
-            //MAPPER REQUIRED
-             */
         }
 
         public NewsItemDto CreateNewsItem(NewsItemInputModel body) {

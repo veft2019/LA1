@@ -13,7 +13,8 @@ namespace TechnicalRadiation.WebApi.Mappings
         public MappingProfile()
         {
             CreateMap<NewsItem, NewsItemDto>();
-            CreateMap<NewsItem, NewsItemDetailDto>();
+            CreateMap<NewsItem, NewsItemDetailDto>()
+                .ForMember(src => src.PublishDate, opt => opt.MapFrom(src => DateTime.Now.ToString("MM/dd/yyyy h:mm tt")));
             CreateMap<Category, CategoryDto>();
             CreateMap<Author, AuthorDto>();
             CreateMap<NewsItemInputModel, NewsItem>()

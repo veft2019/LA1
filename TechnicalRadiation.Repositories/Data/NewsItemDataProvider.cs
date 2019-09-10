@@ -16,6 +16,7 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "https://tmbidigitalassetsazure.blob.core.windows.net/secure/RMS/attachments/37/1200x1200/Cobb-Salad-Club-Sandwich_EXPS_THAM19_233459_B11_09_2b.jpg",
                 ShortDescription = "Petra totally lost it and is not OK!",
                 LongDescription = "This after noon, Petra a 27 years old women totally lost it. She did not get the sandwich that she wanted and is now throwing tables and can bottles in Reykjavík University.",
+                PublishDate = DateTime.Now,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
                 ModifiedBy = _adminName
@@ -26,6 +27,7 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "https://example.com/news-item/2.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
+                PublishDate = DateTime.Now,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
                 ModifiedBy = _adminName
@@ -36,6 +38,7 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "https://example.com/news-item/3.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
+                PublishDate = DateTime.Now,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
                 ModifiedBy = _adminName
@@ -46,6 +49,7 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "https://example.com/news-item/4.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
+                PublishDate = DateTime.Now,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
                 ModifiedBy = _adminName
@@ -56,6 +60,7 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "https://example.com/news-item/5.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
+                PublishDate = DateTime.Now,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
                 ModifiedBy = _adminName
@@ -66,6 +71,7 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "https://example.com/news-item/6.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
+                PublishDate = DateTime.Now,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
                 ModifiedBy = _adminName
@@ -76,6 +82,7 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "https://example.com/news-item/7.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
+                PublishDate = DateTime.Now,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
                 ModifiedBy = _adminName
@@ -86,6 +93,7 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "https://example.com/news-item/8.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
+                PublishDate = DateTime.Now,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
                 ModifiedBy = _adminName
@@ -96,6 +104,7 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "https://example.com/news-item/9.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
+                PublishDate = DateTime.Now,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
                 ModifiedBy = _adminName
@@ -106,6 +115,7 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "https://example.com/news-item/10.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
+                PublishDate = DateTime.Now,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
                 ModifiedBy = _adminName
@@ -116,6 +126,7 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "https://example.com/news-item/11.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
+                PublishDate = DateTime.Now,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
                 ModifiedBy = _adminName
@@ -126,6 +137,7 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "https://example.com/news-item/12.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
+                PublishDate = DateTime.Now,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
                 ModifiedBy = _adminName
@@ -136,6 +148,7 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "https://example.com/news-item/13.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
+                PublishDate = DateTime.Now,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
                 ModifiedBy = _adminName
@@ -146,6 +159,7 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "https://example.com/news-item/14.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
+                PublishDate = DateTime.Now,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
                 ModifiedBy = _adminName
@@ -156,6 +170,7 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "https://example.com/news-item/15.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
+                PublishDate = DateTime.Now,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
                 ModifiedBy = _adminName
@@ -166,6 +181,7 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "https://example.com/news-item/16.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
+                PublishDate = DateTime.Now,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
                 ModifiedBy = _adminName
@@ -176,6 +192,7 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "https://example.com/news-item/17.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
+                PublishDate = DateTime.Now,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
                 ModifiedBy = _adminName
@@ -186,6 +203,7 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "https://example.com/news-item/18.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
+                PublishDate = DateTime.Now,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
                 ModifiedBy = _adminName
@@ -196,6 +214,7 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "https://example.com/news-item/19.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
+                PublishDate = DateTime.Now,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
                 ModifiedBy = _adminName
@@ -206,6 +225,7 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "https://example.com/news-item/20.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
+                PublishDate = DateTime.Now,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
                 ModifiedBy = _adminName
@@ -216,6 +236,7 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "https://example.com/news-item/21.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
+                PublishDate = DateTime.Now,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
                 ModifiedBy = _adminName
@@ -226,6 +247,7 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "https://example.com/news-item/22.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
+                PublishDate = DateTime.Now,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
                 ModifiedBy = _adminName
@@ -236,6 +258,7 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "https://example.com/news-item/23.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
+                PublishDate = DateTime.Now,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
                 ModifiedBy = _adminName
@@ -246,6 +269,7 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "https://example.com/news-item/24.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
+                PublishDate = DateTime.Now,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
                 ModifiedBy = _adminName
@@ -256,6 +280,7 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "https://example.com/news-item/25.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
+                PublishDate = DateTime.Now,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
                 ModifiedBy = _adminName
@@ -266,6 +291,7 @@ namespace TechnicalRadiation.Repositories.Data
                 ImgSource = "https://example.com/news-item/26.jpg",
                 ShortDescription = "A short description",
                 LongDescription = "A long description",
+                PublishDate = DateTime.Now,
                 DateCreated = DateTime.Now,
                 DateModified = DateTime.Now,
                 ModifiedBy = _adminName
