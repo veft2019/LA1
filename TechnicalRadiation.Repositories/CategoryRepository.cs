@@ -45,6 +45,14 @@ namespace TechnicalRadiation.Repositories
             return _mapper.Map<CategoryDto>(entity);
         }
 
+        public void UpdateCategoryById(CategoryInputModel body, int id) {
+            var entity = CategoryDataProvider.Categories.FirstOrDefault(c => c.Id == id);
+            if (entity == null) { return; /* Throw some exception */ }
+
+            // Update props
+            entity.Name = body.Name;
+        }
+
          public void DeleteCategoriesById(int id) {
             var entity = CategoryDataProvider.Categories.FirstOrDefault(r => r.Id == id);
             if (entity == null) { return; /* remember exception */ }

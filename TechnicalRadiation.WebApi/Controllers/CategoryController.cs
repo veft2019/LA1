@@ -41,6 +41,16 @@ namespace TechnicalRadiation.WebApi.Controllers
             return CreatedAtRoute("GetCategoriesById", new { id = category.Id }, null);
         }
 
+        //http://localhost:5000/api/categories/1 [PUT]
+        [ApiKeyAuthorization]
+        [Route("{id:int}")]
+        [HttpPut]
+        public IActionResult UpdateCategoryById([FromBody] CategoryInputModel body, int id) {
+            if(!ModelState.IsValid) { return BadRequest("Data was not properly formatted."); }
+            _categoryService.UpdateCategoryById(body, id);
+            return NoContent();
+        }
+
         [ApiKeyAuthorization]
         [Route("{id:int}")]
         [HttpDelete]
