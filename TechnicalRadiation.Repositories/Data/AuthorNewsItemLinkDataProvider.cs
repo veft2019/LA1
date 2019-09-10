@@ -14,6 +14,10 @@ namespace TechnicalRadiation.Repositories.Data
             new NewsItemAuthors {
                 AuthorId = 3,
                 NewsItemId = 3
+            },
+            new NewsItemAuthors {
+                AuthorId = 3,
+                NewsItemId = 2
             }
         };
     }

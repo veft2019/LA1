@@ -53,6 +53,10 @@ namespace TechnicalRadiation.Repositories
             entity.Name = body.Name;
         }
 
+         public IEnumerable<NewsItemCategories> GetCategoriesByNewsItemId(int id) { 
+           return CategoryNewsItemLinkDataProvider.CategoryNewsItemLink.Where(n => n.CategoryId == id);
+        }
+
          public void DeleteCategoriesById(int id) {
             var entity = CategoryDataProvider.Categories.FirstOrDefault(r => r.Id == id);
             if (entity == null) { return; /* remember exception */ }

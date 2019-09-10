@@ -66,6 +66,10 @@ namespace TechnicalRadiation.Repositories
             entity.DateModified = DateTime.Now;
         }
 
+        public IEnumerable<NewsItemAuthors> GetAuthorsByNewsItemId(int id) { 
+           return AuthorNewsItemLinkDataProvider.AuthorNewsItemLink.Where(n => n.NewsItemId == id);
+        }
+
         public void DeleteAuthorById(int id) {
             var entity = AuthorDataProvider.Authors.FirstOrDefault(r => r.Id == id);
             if (entity == null) { return; /* remember exception */ }
