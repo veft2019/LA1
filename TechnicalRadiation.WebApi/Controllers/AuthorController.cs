@@ -57,6 +57,7 @@ namespace TechnicalRadiation.WebApi.Controllers
         }
 
         //http://localhost:5000/api/authors/1 [DELETE]
+        [ApiKeyAuthorization]
         [Route("{id:int}")]
         [HttpDelete]
         public IActionResult DeleteAuthorById(int id) {

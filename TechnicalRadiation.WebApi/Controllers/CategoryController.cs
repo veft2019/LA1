@@ -41,6 +41,7 @@ namespace TechnicalRadiation.WebApi.Controllers
             return CreatedAtRoute("GetCategoriesById", new { id = category.Id }, null);
         }
 
+        [ApiKeyAuthorization]
         [Route("{id:int}")]
         [HttpDelete]
         public IActionResult DeleteCategoriesById(int id) {

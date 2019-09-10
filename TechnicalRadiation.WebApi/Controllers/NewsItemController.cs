@@ -59,6 +59,7 @@ namespace TechnicalRadiation.WebApi.Controllers
         }
 
         //http://localhost:5000/api/newsItems/1 [DELETE]
+        [ApiKeyAuthorization]
         [Route("{id:int}")]
         [HttpDelete]
         public IActionResult DeleteNewsItemById(int id) {
