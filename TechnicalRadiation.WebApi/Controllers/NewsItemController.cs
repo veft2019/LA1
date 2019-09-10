@@ -36,7 +36,8 @@ namespace TechnicalRadiation.WebApi.Controllers
             
             return Ok(_newsItemService.GetNewsItemById(id));
         }
-
+        
+        /* ========== Authorized routes ===============*/
         //http://localhost:5000/api [POST]
         [Route("")]
         [HttpPost]

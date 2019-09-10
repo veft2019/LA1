@@ -30,7 +30,8 @@ namespace TechnicalRadiation.WebApi.Controllers
             var category = _categoryService.GetCategoryById(id);
             return Ok(category);
         }
-
+        
+        /* ========== Authorized routes ===============*/
         //http://localhost:5000/api/categories [POST]
         [Route("")]
         [HttpPost]

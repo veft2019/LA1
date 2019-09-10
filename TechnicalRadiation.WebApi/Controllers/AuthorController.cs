@@ -37,6 +37,7 @@ namespace TechnicalRadiation.WebApi.Controllers
             return Ok(newsItems);
         }
 
+        /* ========== Authorized routes ===============*/
         //http://localhost:5000/api/authors [POST]
         [Route("")]
         [HttpPost]
