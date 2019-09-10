@@ -13,10 +13,12 @@ namespace TechnicalRadiation.Services
     {
         private NewsItemRepository _newsItemRepo;
         private AuthorRepository _authorRepo;
+        private CategoryRepository _categoryRepo;
 
         public NewsItemService(IMapper mapper) {
             _newsItemRepo = new NewsItemRepository(mapper);
             _authorRepo = new AuthorRepository(mapper);
+            _categoryRepo = new CategoryRepository(mapper);
         }
 
         public List<NewsItemDto> GetAllNewsItems() {
@@ -25,8 +27,8 @@ namespace TechnicalRadiation.Services
                 n.Links.AddReference("self", new JObject{new JProperty("href", $"/api/{n.Id}")});
                 n.Links.AddReference("edit", new JObject{new JProperty("href", $"/api/{n.Id}")});
                 n.Links.AddReference("delete", new JObject{new JProperty("href", $"/api/{n.Id}")});
-                //n.Links.AddListReference("authors", _authorRepo.GetAuthorsByNewsItemId(n.Id).Select(a => new { href = $"api/authors/{a.Id}/newsItems/{n.Id}"}));
-                //n.Links.AddListReference("categories", _categoryRepo.GetCategoriesByNewsItemId(n.Id).Select(c => new { href = $"api/categories/{c.Id}/newsItems/{n.Id}"}));
+                n.Links.AddListReference("authors", _authorRepo.GetAuthorsByNewsItemId(n.Id).Select(a => new { href = $"api/authors/{a.AuthorId}"}));
+                n.Links.AddListReference("categories", _categoryRepo.GetCategoriesByNewsItemId(n.Id).Select(c => new { href = $"api/categories/{c.CategoryId}"}));
             });
 
             return newsItems;
@@ -38,8 +40,8 @@ namespace TechnicalRadiation.Services
             newsItem.Links.AddReference("self", new JObject{new JProperty("href", $"/api/{newsItem.Id}")});
             newsItem.Links.AddReference("edit", new JObject{new JProperty("href", $"/api/{newsItem.Id}")});
             newsItem.Links.AddReference("delete", new JObject{new JProperty("href", $"/api/{newsItem.Id}")});
-            //newsItem.Links.AddListReference("authors", _authorRepo.GetAuthorsByNewsItemId(newsItem.Id).Select(a => new {href = $"api/authors/{a.Id}/newsItems/{newsItem.Id}"}));
-            //newsItem.Links.AddListReference("categories", _categoryRepo.GetCategoriesByNewsItemId(newsItem.Id).Select(c => new {href = $"api/categories/{c.Id}/newsItems/{newsItem.Id}"}));
+            newsItem.Links.AddListReference("authors", _authorRepo.GetAuthorsByNewsItemId(newsItem.Id).Select(a => new { href = $"api/authors/{a.AuthorId}"}));
+            newsItem.Links.AddListReference("categories", _categoryRepo.GetCategoriesByNewsItemId(newsItem.Id).Select(c => new {href = $"api/categories/{c.CategoryId}"}));
 
             return newsItem;
         }
