@@ -64,7 +64,7 @@ namespace TechnicalRadiation.Repositories
         }
 
          public IEnumerable<NewsItemCategories> GetCategoriesByNewsItemId(int id) { 
-           return CategoryNewsItemLinkDataProvider.CategoryNewsItemLink.Where(n => n.CategoryId == id);
+           return CategoryNewsItemLinkDataProvider.CategoryNewsItemLink.Where(n => n.NewsItemId == id);
         }
 
          public void DeleteCategoriesById(int id) {
