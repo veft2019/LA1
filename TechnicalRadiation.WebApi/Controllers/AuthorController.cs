@@ -1,5 +1,6 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Services;
 using TechnicalRadiation.WebApi.CustomAttributes;
@@ -20,6 +21,7 @@ namespace TechnicalRadiation.WebApi.Controllers
         [HttpGet]
         public IActionResult GetAllAuthors() {
             var authorList = _authorService.GetAllAuthors();
+            if(authorList == null) { return StatusCode(500); }
             return Ok(authorList);
         }
 
@@ -27,16 +29,22 @@ namespace TechnicalRadiation.WebApi.Controllers
         [Route("{id:int}", Name = "GetAuthorById")]
         [HttpGet]
         public IActionResult GetAuthorById(int id) {
-            var author = _authorService.GetAuthorById(id);
-            return Ok(author);
+            try {
+                return Ok(_authorService.GetAuthorById(id));
+            } catch(ContentNotFoundException e) {
+                return BadRequest(e.Message);
+            }
         }
 
         //http://localhost:5000/api/authors/{authorId}/newsItems [GET]
         [Route("{id:int}/newsItems")]
         [HttpGet]
         public IActionResult GetNewsItemsByAuthorId(int id) {
-            var newsItems = _authorService.GetNewsItemsByAuthorId(id);
-            return Ok(newsItems);
+            try {
+                return Ok(_authorService.GetNewsItemsByAuthorId(id));
+            } catch(ContentNotFoundException e) {
+                return BadRequest(e.Message);
+            }
         }
 
         /* ========== Authorized routes ===============*/

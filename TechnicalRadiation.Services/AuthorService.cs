@@ -26,7 +26,7 @@ namespace TechnicalRadiation.Services
                 a.Links.AddReference("edit", new JObject{new JProperty("href", $"/api/authors/{a.Id}")});
                 a.Links.AddReference("delete", new JObject{new JProperty("href", $"/api/authors/{a.Id}")});
                 a.Links.AddReference("newsItems", new JObject{new JProperty("href", $"/api/authors/{a.Id}/newsItems")});
-                //Need List reference for authors newItemDetailed href links
+                a.Links.AddListReference("newsItemsDetailed", _authorRepo.GetNewsItemsByAuthorId(a.Id).Select(n => new { href = $"api/{n.Id}"}));
             });
             return authors;
         }
@@ -37,7 +37,7 @@ namespace TechnicalRadiation.Services
             author.Links.AddReference("edit", new JObject{new JProperty("href", $"/api/authors/{author.Id}")});
             author.Links.AddReference("delete", new JObject{new JProperty("href", $"/api/authors/{author.Id}")});
             author.Links.AddReference("newsItems", new JObject{new JProperty("href", $"/api/authors/{author.Id}/newsItems")});
-            //need stuff
+            author.Links.AddListReference("newsItemsDetailed", _authorRepo.GetNewsItemsByAuthorId(author.Id).Select(n => new { href = $"api/{n.Id}"}));
             return author;
         }
 

@@ -30,19 +30,16 @@ namespace TechnicalRadiation.Services
                 n.Links.AddListReference("authors", _authorRepo.GetAuthorsByNewsItemId(n.Id).Select(a => new { href = $"api/authors/{a.AuthorId}"}));
                 n.Links.AddListReference("categories", _categoryRepo.GetCategoriesByNewsItemId(n.Id).Select(c => new { href = $"api/categories/{c.CategoryId}"}));
             });
-
             return newsItems;
         }
 
         public NewsItemDetailDto GetNewsItemById(int newsItemId) {
             var newsItem = _newsItemRepo.GetNewsItemById(newsItemId);
-            
             newsItem.Links.AddReference("self", new JObject{new JProperty("href", $"/api/{newsItem.Id}")});
             newsItem.Links.AddReference("edit", new JObject{new JProperty("href", $"/api/{newsItem.Id}")});
             newsItem.Links.AddReference("delete", new JObject{new JProperty("href", $"/api/{newsItem.Id}")});
             newsItem.Links.AddListReference("authors", _authorRepo.GetAuthorsByNewsItemId(newsItem.Id).Select(a => new { href = $"api/authors/{a.AuthorId}"}));
             newsItem.Links.AddListReference("categories", _categoryRepo.GetCategoriesByNewsItemId(newsItem.Id).Select(c => new {href = $"api/categories/{c.CategoryId}"}));
-
             return newsItem;
         }
 

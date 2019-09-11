@@ -3,6 +3,7 @@ using System.Linq;
 using AutoMapper;
 using TechnicalRadiation.Models.Dtos;
 using TechnicalRadiation.Models.Entities;
+using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Repositories.Data;
 
@@ -26,7 +27,7 @@ namespace TechnicalRadiation.Repositories
 
         public CategoryDetailDto GetCategoryById(int id) {
             var category = CategoryDataProvider.Categories.FirstOrDefault(c => c.Id == id);
-            if(category == null) { return null; } //throw exception
+            if(category == null) { throw new ContentNotFoundException("Content not found!"); }
             return new CategoryDetailDto {
                 Id = category.Id,
                 Name = category.Name,
@@ -51,9 +52,8 @@ namespace TechnicalRadiation.Repositories
 
         public void UpdateCategoryById(CategoryInputModel body, int id) {
             var entity = CategoryDataProvider.Categories.FirstOrDefault(c => c.Id == id);
-            if (entity == null) { return; /* Throw some exception */ }
 
-            // Update props
+            //Update props
             entity.Name = body.Name;
             entity.Slug = body.Name.Replace(' ', '-').ToLower();
         }
@@ -63,17 +63,16 @@ namespace TechnicalRadiation.Repositories
             //Checking if connection is already made
             var exists = CategoryNewsItemLinkDataProvider.CategoryNewsItemLink
                         .FirstOrDefault(i => i.NewsItemId == newsItemId && i.CategoryId == categoryId);
-            if(exists != null) { return; } //Throw exception
+            if(exists != null) { throw new ContentNotFoundException("Connection already exists!") ; }
             CategoryNewsItemLinkDataProvider.CategoryNewsItemLink.Add(newConnection);
         }
 
-         public IEnumerable<NewsItemCategories> GetCategoriesByNewsItemId(int id) { 
-           return CategoryNewsItemLinkDataProvider.CategoryNewsItemLink.Where(n => n.NewsItemId == id);
+        public IEnumerable<NewsItemCategories> GetCategoriesByNewsItemId(int id) { 
+            return CategoryNewsItemLinkDataProvider.CategoryNewsItemLink.Where(n => n.NewsItemId == id);
         }
 
-         public void DeleteCategoriesById(int id) {
+        public void DeleteCategoriesById(int id) {
             var entity = CategoryDataProvider.Categories.FirstOrDefault(r => r.Id == id);
-            if (entity == null) { return; /* remember exception */ }
             CategoryDataProvider.Categories.Remove(entity);
         }
     }

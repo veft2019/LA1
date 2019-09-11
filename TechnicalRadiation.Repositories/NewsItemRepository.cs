@@ -3,6 +3,7 @@ using System.Linq;
 using AutoMapper;
 using TechnicalRadiation.Models.Dtos;
 using TechnicalRadiation.Models.Entities;
+using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Repositories.Data;
 
@@ -11,8 +12,7 @@ namespace TechnicalRadiation.Repositories
     public class NewsItemRepository
     {
         private IMapper _mapper;
-        public NewsItemRepository(IMapper mapper)
-        {
+        public NewsItemRepository(IMapper mapper) {
             _mapper = mapper;
         }
 
@@ -23,7 +23,7 @@ namespace TechnicalRadiation.Repositories
 
         public NewsItemDetailDto GetNewsItemById(int newsItemId) {
             var newsItem = NewsItemDataProvider.NewsItems.FirstOrDefault(n => n.Id == newsItemId);
-            if(newsItem == null) { return null; } //Throw exception
+            if(newsItem == null) { throw new ContentNotFoundException("Content not found!"); }
             return _mapper.Map<NewsItemDetailDto>(newsItem);
         }
 
@@ -37,9 +37,8 @@ namespace TechnicalRadiation.Repositories
 
         public void UpdateNewsItemByID(NewsItemInputModel body, int id) {
             var entity = NewsItemDataProvider.NewsItems.Where(n => n.Id == id).First();
-            if (entity == null) { return; /* Throw some exception */ }
-
-            // Update props
+            
+            //Update props
             entity.Title = body.Title;
             entity.ImgSource = body.ImgSource;
             entity.LongDescription = body.LongDescription;
@@ -49,7 +48,6 @@ namespace TechnicalRadiation.Repositories
 
          public void DeleteNewsItemById(int id) {
             var entity = NewsItemDataProvider.NewsItems.FirstOrDefault(r => r.Id == id);
-            if (entity == null) { return; /* remember exception */ }
             NewsItemDataProvider.NewsItems.Remove(entity);
         }
     }

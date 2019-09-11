@@ -1,5 +1,6 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Services;
 using TechnicalRadiation.WebApi.CustomAttributes;
@@ -20,6 +21,7 @@ namespace TechnicalRadiation.WebApi.Controllers
         [HttpGet]
         public IActionResult GetAllCategories() {
             var categoryList = _categoryService.GetAllCategories();
+            if(categoryList == null) { return StatusCode(500); }
             return Ok(categoryList);
         }
         
@@ -27,8 +29,11 @@ namespace TechnicalRadiation.WebApi.Controllers
         [Route("{id:int}", Name = "GetCategoriesById")]
         [HttpGet]
         public IActionResult GetCategoryById(int id) {
-            var category = _categoryService.GetCategoryById(id);
-            return Ok(category);
+            try {
+                return Ok(_categoryService.GetCategoryById(id));
+            } catch(ContentNotFoundException e) {
+                return BadRequest(e.Message);
+            }
         }
         
         /* ========== Authorized routes ===============*/
@@ -43,9 +48,9 @@ namespace TechnicalRadiation.WebApi.Controllers
         }
 
         //http://localhost:5000/api/categories/1 [PUT]
-        [ApiKeyAuthorization]
         [Route("{id:int}")]
         [HttpPut]
+        [ApiKeyAuthorization]
         public IActionResult UpdateCategoryById([FromBody] CategoryInputModel body, int id) {
             if(!ModelState.IsValid) { return BadRequest("Data was not properly formatted."); }
             _categoryService.UpdateCategoryById(body, id);
@@ -53,18 +58,22 @@ namespace TechnicalRadiation.WebApi.Controllers
         }
 
         //http://localhost:5000/api/categories/1/newsItems/1 [POST]
-        [ApiKeyAuthorization]
         [Route("{categoryId:int}/newsItems/{newsItemId:int}")]
         [HttpPost]
+        [ApiKeyAuthorization]
         public IActionResult ConnectNewsItemToCategory(int categoryId, int newsItemId) {
-            _categoryService.ConnectNewsItemToCategory(categoryId, newsItemId);
-            return NoContent();
+            try {
+                _categoryService.ConnectNewsItemToCategory(categoryId, newsItemId);
+                return NoContent();
+            } catch(ContentNotFoundException e) {
+                return BadRequest(e.Message);
+            }
         }
 
         //http://localhost:5000/api/categories/1 [DELETE]
-        [ApiKeyAuthorization]
         [Route("{id:int}")]
         [HttpDelete]
+        [ApiKeyAuthorization]
         public IActionResult DeleteCategoriesById(int id) {
             _categoryService.DeleteCategoriesById(id);
             return NoContent();

@@ -4,6 +4,7 @@ using System.Linq;
 using AutoMapper;
 using TechnicalRadiation.Models.Dtos;
 using TechnicalRadiation.Models.Entities;
+using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Repositories.Data;
 
@@ -26,7 +27,7 @@ namespace TechnicalRadiation.Repositories
 
         public AuthorDetailDto GetAuthorById(int id) {
             var author = AuthorDataProvider.Authors.FirstOrDefault(a => a.Id == id);
-            if(author == null) { return null; } //throw exception
+            if(author == null) { throw new ContentNotFoundException("Content not found!"); }
             return new AuthorDetailDto {
                 Id = author.Id,
                 Name = author.Name,
@@ -45,7 +46,7 @@ namespace TechnicalRadiation.Repositories
                 var entity = NewsItemDataProvider.NewsItems.FirstOrDefault(n => n.Id == item.NewsItemId);
                 newsItems.Add(_mapper.Map<NewsItemDto>(entity));
             }
-            
+            if(newsItems.Count() <= 0) { throw new ContentNotFoundException("Content not found!"); }
             return newsItems;
         }
 
@@ -59,7 +60,8 @@ namespace TechnicalRadiation.Repositories
 
         public void UpdateAuthorById(AuthorInputModel body, int id) {
             var entity = AuthorDataProvider.Authors.FirstOrDefault(a => a.Id == id);
-            if (entity == null) { return; /* Throw some exception */ }
+
+            //Update props
             entity.Name = body.Name;
             entity.ProfileImageSource = body.ProfileImgSource;
             entity.Bio = body.Bio;

@@ -6,6 +6,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using TechnicalRadiation.Models;
 using TechnicalRadiation.Models.Dtos;
+using TechnicalRadiation.Models.Exceptions;
 using TechnicalRadiation.Models.InputModels;
 using TechnicalRadiation.Services;
 using TechnicalRadiation.WebApi.CustomAttributes;
@@ -33,8 +34,11 @@ namespace TechnicalRadiation.WebApi.Controllers
         [Route("{id:int}", Name = "GetNewsItemsById")] // þetta route ef ég ætla refreca þennan route í kóða
         [HttpGet]
         public IActionResult getNewsItemsById(int id) {
-            
-            return Ok(_newsItemService.GetNewsItemById(id));
+            try {
+                return Ok(_newsItemService.GetNewsItemById(id));
+            } catch(ContentNotFoundException e) {
+                return BadRequest(e.Message);
+            }
         }
         
         /* ========== Authorized routes ===============*/
@@ -49,9 +53,9 @@ namespace TechnicalRadiation.WebApi.Controllers
         }
 
         //http://localhost:5000/api/newsItems/1 [PUT]
-        [ApiKeyAuthorization]
         [Route("{id:int}")]
         [HttpPut]
+        [ApiKeyAuthorization]
         public IActionResult UpdateNewsItemByID([FromBody] NewsItemInputModel body, int id) {
             if(!ModelState.IsValid) { return BadRequest("Data was not properly formatted."); }
             _newsItemService.UpdateNewsItemByID(body, id);
@@ -59,11 +63,10 @@ namespace TechnicalRadiation.WebApi.Controllers
         }
 
         //http://localhost:5000/api/newsItems/1 [DELETE]
-        [ApiKeyAuthorization]
         [Route("{id:int}")]
         [HttpDelete]
+        [ApiKeyAuthorization]
         public IActionResult DeleteNewsItemById(int id) {
-
             _newsItemService.DeleteNewsItemById(id);
             return NoContent();
         }
