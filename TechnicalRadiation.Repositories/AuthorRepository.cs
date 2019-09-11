@@ -63,7 +63,7 @@ namespace TechnicalRadiation.Repositories
             //Checking if connection is already made
             NewsItemAuthors exists = AuthorNewsItemLinkDataProvider.AuthorNewsItemLink
                                     .FirstOrDefault(i => i.NewsItemId == newsItemId && i.AuthorId == authorId);
-            if(exists != null) { throw new ContentNotFoundException("Connection already exists!"); }
+            if(exists != null) { throw new ConnectionExistsException("Connection already exists!"); }
             AuthorNewsItemLinkDataProvider.AuthorNewsItemLink.Add(newConnection);
         }
 
@@ -73,7 +73,6 @@ namespace TechnicalRadiation.Repositories
 
         public void DeleteAuthorById(int id) {
             var entity = AuthorDataProvider.Authors.FirstOrDefault(r => r.Id == id);
-            if (entity == null) { return; /* remember exception */ }
             AuthorDataProvider.Authors.Remove(entity);
         }
 

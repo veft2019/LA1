@@ -5,15 +5,14 @@ using Microsoft.Extensions.Primitives;
 
 namespace TechnicalRadiation.WebApi.CustomAttributes
 {
-    public class ApiKeyAuthorization : Attribute, IAuthorizationFilter
+    public class ApiKeyAuthorization : ActionFilterAttribute
     {
-        private static readonly string _apiKey = "admin";
+        private static readonly string _serverApiKey = "admin";
         
-        public void OnAuthorization(AuthorizationFilterContext context)
-        {
-            StringValues authentication;
-            context.HttpContext.Request.Headers.TryGetValue("Authorization", out authentication);
-            if(authentication != _apiKey) { context.Result = new StatusCodeResult(401); }
+        public override void OnActionExecuting(ActionExecutingContext context) {
+            StringValues clientAuthorization;
+            context.HttpContext.Request.Headers.TryGetValue("Authorization", out clientAuthorization);
+            if(clientAuthorization != _serverApiKey) { context.Result = new StatusCodeResult(401); }
         }
     }
 }

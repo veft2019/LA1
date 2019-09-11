@@ -32,7 +32,7 @@ namespace TechnicalRadiation.WebApi.Controllers
             try {
                 return Ok(_categoryService.GetCategoryById(id));
             } catch(ContentNotFoundException e) {
-                return BadRequest(e.Message);
+                return NotFound(e.Message);
             }
         }
         
@@ -64,8 +64,10 @@ namespace TechnicalRadiation.WebApi.Controllers
         public IActionResult ConnectNewsItemToCategory(int categoryId, int newsItemId) {
             try {
                 _categoryService.ConnectNewsItemToCategory(categoryId, newsItemId);
-                return NoContent();
-            } catch(ContentNotFoundException e) {
+                
+                //Just a standard Created 201 becuase there is no path created for this connection
+                return StatusCode(201);
+            } catch(ConnectionExistsException e) {
                 return BadRequest(e.Message);
             }
         }

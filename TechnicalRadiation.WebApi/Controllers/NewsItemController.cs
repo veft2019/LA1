@@ -37,7 +37,7 @@ namespace TechnicalRadiation.WebApi.Controllers
             try {
                 return Ok(_newsItemService.GetNewsItemById(id));
             } catch(ContentNotFoundException e) {
-                return BadRequest(e.Message);
+                return NotFound(e.Message);
             }
         }
         

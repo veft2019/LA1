@@ -54,7 +54,7 @@ namespace TechnicalRadiation.Repositories
             //Checking if connection is already made
             var exists = CategoryNewsItemLinkDataProvider.CategoryNewsItemLink
                         .FirstOrDefault(i => i.NewsItemId == newsItemId && i.CategoryId == categoryId);
-            if(exists != null) { throw new ContentNotFoundException("Connection already exists!"); }
+            if(exists != null) { throw new ConnectionExistsException("Connection already exists!"); }
             CategoryNewsItemLinkDataProvider.CategoryNewsItemLink.Add(newConnection);
         }
 

@@ -32,7 +32,7 @@ namespace TechnicalRadiation.WebApi.Controllers
             try {
                 return Ok(_authorService.GetAuthorById(id));
             } catch(ContentNotFoundException e) {
-                return BadRequest(e.Message);
+                return NotFound(e.Message);
             }
         }
 
@@ -43,7 +43,7 @@ namespace TechnicalRadiation.WebApi.Controllers
             try {
                 return Ok(_authorService.GetNewsItemsByAuthorId(id));
             } catch(ContentNotFoundException e) {
-                return BadRequest(e.Message);
+                return NotFound(e.Message);
             }
         }
 
@@ -82,8 +82,15 @@ namespace TechnicalRadiation.WebApi.Controllers
         [HttpPost]
         [ApiKeyAuthorization]
         public IActionResult ConnectNewsItemToAuthor(int authorId, int newsItemId) {
-            _authorService.ConnectNewsItemToAuthor(authorId, newsItemId);
-            return NoContent();
+            try {
+                _authorService.ConnectNewsItemToAuthor(authorId, newsItemId);
+            
+                //Just a standard 201 becuase there is no path created for this connection
+                return StatusCode(201);
+            } catch(ConnectionExistsException e) {
+                return BadRequest(e.Message);
+            }
+            
         }
     }
 }
