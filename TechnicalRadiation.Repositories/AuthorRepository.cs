@@ -18,29 +18,18 @@ namespace TechnicalRadiation.Repositories
         }
 
         public IEnumerable<AuthorDto> GetAllAuthors() {
-            return AuthorDataProvider.Authors.Select(a => new AuthorDto {
-                Id = a.Id,
-                Name = a.Name
-            });
-            //MAPPER REQUIRED
+            return AuthorDataProvider.Authors.Select(a => _mapper.Map<AuthorDto>(a));
         }
 
         public AuthorDetailDto GetAuthorById(int id) {
             var author = AuthorDataProvider.Authors.FirstOrDefault(a => a.Id == id);
             if(author == null) { throw new ContentNotFoundException("Content not found!"); }
-            return new AuthorDetailDto {
-                Id = author.Id,
-                Name = author.Name,
-                ProfileImgSoruce = author.ProfileImageSource,
-                Bio = author.Bio
-            };
-            //MAPPER REQUIRED
+            return _mapper.Map<AuthorDetailDto>(author);
         }
 
         public IEnumerable<NewsItemDto> GetNewsItemsByAuthorId(int id) {
             var authorNewsItemLinks = AuthorNewsItemLinkDataProvider.AuthorNewsItemLink.Where(a => a.AuthorId == id);
             List<NewsItemDto> newsItems = new List<NewsItemDto>();
-            
             foreach (var item in authorNewsItemLinks)
             {
                 var entity = NewsItemDataProvider.NewsItems.FirstOrDefault(n => n.Id == item.NewsItemId);
@@ -70,10 +59,11 @@ namespace TechnicalRadiation.Repositories
 
         public void ConnectNewsItemToAuthor(int authorId, int newsItemId) {
             NewsItemAuthors newConnection = new NewsItemAuthors {AuthorId = authorId, NewsItemId = newsItemId};
+            
             //Checking if connection is already made
             NewsItemAuthors exists = AuthorNewsItemLinkDataProvider.AuthorNewsItemLink
                                     .FirstOrDefault(i => i.NewsItemId == newsItemId && i.AuthorId == authorId);
-            if(exists != null) { return; } //Throw exception
+            if(exists != null) { throw new ContentNotFoundException("Connection already exists!"); }
             AuthorNewsItemLinkDataProvider.AuthorNewsItemLink.Add(newConnection);
         }
 

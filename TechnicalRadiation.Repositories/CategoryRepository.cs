@@ -17,23 +17,13 @@ namespace TechnicalRadiation.Repositories
             _mapper = mapper;
         }
         public IEnumerable<CategoryDto> GetAllCategories() {
-            return CategoryDataProvider.Categories.Select(c => new CategoryDto {
-                Id = c.Id,
-                Name = c.Name,
-                Slug = c.Slug,
-            });
-            //MAPPER REQUIRED
+            return CategoryDataProvider.Categories.Select(c => _mapper.Map<CategoryDto>(c));
         }
 
         public CategoryDetailDto GetCategoryById(int id) {
             var category = CategoryDataProvider.Categories.FirstOrDefault(c => c.Id == id);
             if(category == null) { throw new ContentNotFoundException("Content not found!"); }
-            return new CategoryDetailDto {
-                Id = category.Id,
-                Name = category.Name,
-                Slug = category.Slug,
-            };
-            //MAPPER REQUIRED
+            return _mapper.Map<CategoryDetailDto>(category);
         }
 
         public int GetNumberOfNewsItemsByCategoryId(int id) {
@@ -60,10 +50,11 @@ namespace TechnicalRadiation.Repositories
 
         public void ConnectNewsItemToCategory(int categoryId, int newsItemId) {
             NewsItemCategories newConnection = new NewsItemCategories {CategoryId = categoryId, NewsItemId = newsItemId};
+            
             //Checking if connection is already made
             var exists = CategoryNewsItemLinkDataProvider.CategoryNewsItemLink
                         .FirstOrDefault(i => i.NewsItemId == newsItemId && i.CategoryId == categoryId);
-            if(exists != null) { throw new ContentNotFoundException("Connection already exists!") ; }
+            if(exists != null) { throw new ContentNotFoundException("Connection already exists!"); }
             CategoryNewsItemLinkDataProvider.CategoryNewsItemLink.Add(newConnection);
         }
 
