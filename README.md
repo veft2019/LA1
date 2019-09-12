@@ -1,16 +1,16 @@
 # README
 # T-514-VEFT
-### Large Assignment 1 - 
-This README is about our 
+### Large Assignment 1 - Technical Radiation
+This README is about our Technical Radiation Large assignment
 
-## About
+## Prerequisite
+Needs the newest dotnet sdk .NET Core 2.2 https://dotnet.microsoft.com/download
 
+## To Build
+dotnet build
 
-## Dependencies install and to build
-
-
-## Known Issues
-
+## To Run
+dotnet run
 
 ## Team Members - 
 Guðrún Margrét Ívansdóttir: gudruni17@ru.is  
